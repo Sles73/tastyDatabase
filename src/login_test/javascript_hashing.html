@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Hashing Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
     <script>
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hash = await crypto.subtle.digest('SHA-256', data);
-            return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+        function hashPassword(password) {
+            // Hash the password using SHA-256
+            var hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+            
+            console.log("Hashed Password: ", hashedPassword);
+
+            // Now you can send the hashed password to the server for authentication
         }
 
         async function handleSubmit(event) {
@@ -18,7 +22,7 @@
             const password = form.password.value;
 
             // Hash the password
-            const hashedPassword = await hashPassword(password);
+            const hashedPassword = await hashPassword2(password);
             console.log('Hashed Password:', hashedPassword);
 
             // Here, you can send the hashed password to the server

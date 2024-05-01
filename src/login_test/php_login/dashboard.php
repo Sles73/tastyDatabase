@@ -15,6 +15,48 @@ if (!isset($_SESSION['username'])) {
 <html>
 <head>
     <title>Image Upload Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="date"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,13 +68,21 @@ if (!isset($_SESSION['username'])) {
     <form action="" method="post" enctype="multipart/form-data">
         Select image to upload:
         <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="date" id="date" name="date">
         <input type="submit" value="Upload Image" name="submit">
     </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get today's date
+            var today = new Date().toISOString().split('T')[0];
+
+            // Set the input value to today's date
+            document.getElementById("date").value = today;
+        });
+    </script>
 </body>
 </html>
-
-
-
 
 <?php
 $targetDirectory = "uploads/"; // Directory where uploaded files will be stored

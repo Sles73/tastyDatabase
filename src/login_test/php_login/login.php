@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Hashing Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script>
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hash = await crypto.subtle.digest('SHA-256', data);
-            return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+       function hashPassword(password) {
+            return CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
         }
 
         function handleSubmit(event) {
@@ -18,19 +17,22 @@
             const password = form.password.value;
 
             // Hash the password
-            hashPassword(password).then(hashedPassword => {
-                // Create a hidden input field to store the hashed password
-                const hashedPasswordInput = document.createElement('input');
-                hashedPasswordInput.type = 'hidden';
-                hashedPasswordInput.name = 'hashedPassword';
-                hashedPasswordInput.value = hashedPassword;
+            const hashedPassword = hashPassword(password);
 
-                // Append the hidden input field to the form
-                form.appendChild(hashedPasswordInput);
-                form.removeChild(form.querySelector('#password'));
-                // Submit the form
-                form.submit();
-            });
+            // Create a hidden input field to store the hashed password
+            const hashedPasswordInput = document.createElement('input');
+            hashedPasswordInput.type = 'hidden';
+            hashedPasswordInput.name = 'hashedPassword';
+            hashedPasswordInput.value = hashedPassword;
+
+            // Append the hidden input field to the form
+            form.appendChild(hashedPasswordInput);
+
+            // Remove the password input field from the form
+            form.removeChild(form.querySelector('#password'));
+
+            // Submit the form
+            form.submit();
         }
     </script>
 </head>
@@ -41,7 +43,7 @@
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Hash Password</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
