@@ -1,9 +1,12 @@
 <?php 
 include("connect.php");
+session_start();
 ?>
 
 <?php
 /*
+// MANUAL USER ADDING
+
 $hashedPassword = $_POST["hashedPassword"];
 
 $pass = '$2y$10$.tFncswOZnJrdaUa2tL83eqyms8JA3myvmdaxQwRT6rGhOqC2scyy';
@@ -40,15 +43,17 @@ $user = $stmt->fetch_assoc();
 if ($user) {
     // Verify the password
     if (password_verify($password, $user['password'])) {
-        // Password is correct
-        echo "Login successful!";
+            // Valid credentials, start session and redirect
+        $_SESSION['username'] = $username;
+        header("Location: dashboard.php"); // Redirect to dashboard or any other secure page
     } else {
-        // Password is incorrect
-        echo "Invalid username or password";
+        // Invalid credentials, redirect back to login page with an error message
+        header("Location: login.php?error=1");
     }
 } else {
     // User not found
-    echo "Invalid username or password";
+    header("Location: login.php?error=1");
 }
 
+$conn->close();
 ?>
