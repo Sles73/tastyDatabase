@@ -1,0 +1,29 @@
+div
+{
+    width: 20vw;
+    height: 20vw;
+    position: absolute;
+    top: 8vh;
+    left: 40vw;
+}
+img
+{
+    width: 20vw;
+    height: 20vw;
+}
+form
+{   
+    width: 40vw;
+    position: relative;
+    top: 43vh;
+    left: 30vw;
+    display: flex;
+    justify-content: center;
+}
+input
+{
+    width: 30vw;
+    height: 5vh;
+    border-radius: 20px;
+    border: 
+}
