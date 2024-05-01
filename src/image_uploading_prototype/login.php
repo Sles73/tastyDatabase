@@ -37,7 +37,7 @@
     </script>
 </head>
 <body>
-    <h2>Password Hashing Example</h2>
+    <h2>Login</h2>
     <form onsubmit="handleSubmit(event)" method="post" action="verification.php">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
@@ -45,5 +45,6 @@
         <input type="password" id="password" name="password" required><br><br>
         <button type="submit">Submit</button>
     </form>
+    <a href="index.php">main</a>
 </body>
 </html>
