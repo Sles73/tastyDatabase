@@ -1,4 +1,6 @@
 <?php
+include("connect.php");
+$conn = connect();
 session_start();
 
 // Check if user is logged in, if not, redirect to login page
@@ -44,6 +46,11 @@ if (!isset($_SESSION['username'])) {
             margin-bottom: 10px;
         }
 
+        select {
+            margin-bottom: 10px;
+            display: block;
+        }
+
         button {
             background-color: #007bff;
             color: #fff;
@@ -61,15 +68,34 @@ if (!isset($_SESSION['username'])) {
 <body>
 
     <form action="" method="post">
-    <h2><?php echo "Welcome, " . $_SESSION['username'] . "!";?></h2>
-    <button type="submit" name="logout">Log out</button>
+        <h2><?php echo "Welcome, " . $_SESSION['username'] . "!";?></h2>
+        <button type="submit" name="logout">Log out</button>
     </form>
 
     <form action="" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="date" id="date" name="date">
-        <input type="submit" value="Upload Image" name="submit">
+        <div style="margin-top: 20px;">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+        </div>
+        <div>
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date">
+        </div>
+        <div>
+            <label for="course">Select the course</label>
+            <select id="course" name="course">
+                <option value="1">Course 1</option>
+                <option value="2">Course 2</option>
+                <option value="3">Course 3</option>
+            </select>
+        </div>
+        <div>
+            <label for="slider">Select a number from 1 to 10:</label>
+            <input type="range" id="slider" name="slider" min="1" max="10" step="1">
+        </div>
+        <div style="margin-top: 20px;">
+            <input type="submit" value="Upload Image" name="submit">
+        </div>
     </form>
 
     <script>
@@ -88,7 +114,7 @@ if (!isset($_SESSION['username'])) {
 $targetDirectory = "uploads/"; // Directory where uploaded files will be stored
 
 // Check if file is uploaded successfully
-if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"]["tmp_name"])) {
+if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"]["tmp_name"]) && !empty($_POST["date"]) && !empty($_POST["slider"]) && !empty($_POST["course"])) {
     $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]); // Path to the uploaded file
 
     // Check if image file is a actual image or fake image
@@ -98,6 +124,15 @@ if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"][
         // Proceed with file upload
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            $name = basename( $_FILES["fileToUpload"]["name"]);
+            $date = $_POST["date"];
+            $hodnoceni = $_POST["slider"];
+            $course = $_POST["course"];
+
+            $sql = "INSERT INTO imgs (filename,date,hodnoceni,chod)
+            VALUES ('$name', '$date','$hodnoceni','$course')";
+            $conn->query($sql);
+
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
