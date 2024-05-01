@@ -73,9 +73,9 @@ if (!isset($_SESSION['username'])) {
     </form>
 
     <form action="" method="post" enctype="multipart/form-data">
-        <div style="margin-top: 20px;">
-            Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
         </div>
         <div>
             <label for="date">Select Date:</label>
@@ -92,6 +92,10 @@ if (!isset($_SESSION['username'])) {
         <div>
             <label for="slider">Select a number from 1 to 10:</label>
             <input type="range" id="slider" name="slider" min="1" max="10" step="1">
+        </div>
+        <div style="margin-top: 20px;">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
         </div>
         <div style="margin-top: 20px;">
             <input type="submit" value="Upload Image" name="submit">
@@ -114,7 +118,7 @@ if (!isset($_SESSION['username'])) {
 $targetDirectory = "uploads/"; // Directory where uploaded files will be stored
 
 // Check if file is uploaded successfully
-if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"]["tmp_name"]) && !empty($_POST["date"]) && !empty($_POST["slider"]) && !empty($_POST["course"])) {
+if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"]["tmp_name"]) && !empty($_POST["date"]) && !empty($_POST["slider"]) && !empty($_POST["course"]) && !empty($_POST["name"])) {
     $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]); // Path to the uploaded file
 
     // Check if image file is a actual image or fake image
@@ -124,13 +128,14 @@ if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"][
         // Proceed with file upload
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-            $name = basename( $_FILES["fileToUpload"]["name"]);
+            $name = $_POST["name"];
+            $fileName = basename( $_FILES["fileToUpload"]["name"]);
             $date = $_POST["date"];
             $hodnoceni = $_POST["slider"];
             $course = $_POST["course"];
 
-            $sql = "INSERT INTO imgs (filename,date,hodnoceni,chod)
-            VALUES ('$name', '$date','$hodnoceni','$course')";
+            $sql = "INSERT INTO imgs (nazev,filename,date,hodnoceni,chod)
+            VALUES ('$name', '$fileName', '$date','$hodnoceni','$course')";
             $conn->query($sql);
 
         } else {
