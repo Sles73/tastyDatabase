@@ -8,24 +8,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#searchBar").on("keyup", function() {
+            var search = $(this).val();
+            console.log(search); // Přidejte tento řádek
+            if (search != '') {
+            $.ajax({
+                url: 'search.php',
+                method: 'POST',
+                data: {searchBar:search},
+                success: function(data) {
+                $('#output').html(data);
+                }
+            });
+            } else {
+            $('#output').html('');
+            }
+        });
+        });
+    </script>
 </head>
 <body>
-    <!-- <div><img src="img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="logo"></div>
-    <form method="POST">
-        <input type="input">
-    </form> -->
     <header>
         <div id="menu">
             <img id="logo" src="img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="Logo">
             <p>Tasty Database</p>
-            <a href="about.html">O Projektu</a>
-            <a href="main.html">Vyhledání</a>
-            <a href="login.html">Přihlášení</a>
+            <a class="websites" href="about.html">O Projektu</a>
+            <a class="websites" href="main.html">Vyhledání</a>
+            <a class="websites" href="login.html">Přihlášení</a>
         </div>
     </header>
     <section>
-        <form id="search" action="" method="POST">
-            <input id="searchBar" type="input">
+        <form id="search" action="search.php" method="POST">
+            <div id="searchArea">
+                <img src="img/search-icon-2044x2048-psdrpqwp.png" alt="searchIcon">
+                <input name="searchBar" id="searchBar" type="text" placeholder="Najít v Tastybase...">
+                <input id="submit" name="clear" type="submit" value="&#215;">
+            </div>
+            <div id="output"></div>
         </form>
     </section>
     <footer>
