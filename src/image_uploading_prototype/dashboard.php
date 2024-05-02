@@ -17,53 +17,9 @@ if (!isset($_SESSION['username'])) {
 <html>
 <head>
     <title>Image Upload Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        form {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 400px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        input[type="file"] {
-            margin-bottom: 10px;
-        }
-
-        input[type="date"] {
-            margin-bottom: 10px;
-        }
-
-        select {
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="dashboardTemporary.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="hash.js"></script>
 </head>
 <body>
 
@@ -102,6 +58,45 @@ if (!isset($_SESSION['username'])) {
         </div>
     </form>
 
+    <form onsubmit="handleSubmitForUserAdd(event)" method="post" action="addUser.php">
+        <h3>Přidání uživatele</h3>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="passwordAgain" name="passwordAgain" required><br><br>
+        <p id="warning"></p>
+        <button type="submit" name="addUser">Submit</button>
+    </form>
+
+    <form onsubmit="handleSubmitForUserModify(event)" method="post" action="modifyUser.php" id="modifyUser">
+        <h3>user management</h3>
+        <label for="username">Username:</label><br>
+        <select type="text" id="username" name="username" required>
+            <?php 
+                      $sql = "SELECT * FROM users";                           
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {                          
+                      // output data of each row
+                      while($row = $result->fetch_assoc()) {
+                        echo '<option value="'.$row["userID"].'">'.$row["username"].'</option>';
+                      }
+                      } else {
+                      echo "0 results";
+                      }
+                  ?>
+        </select>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" ><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="passwordAgain" name="passwordAgain" ><br><br>
+        <p id="text"></p>
+        <button type="submit" name="changePassword">changePassword</button>
+        <button type="submit" id="delete" style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+    </form>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Get today's date
@@ -114,49 +109,49 @@ if (!isset($_SESSION['username'])) {
 </body>
 </html>
 
+<!-- Adding images to database -->
 <?php
-$targetDirectory = "uploads/"; // Directory where uploaded files will be stored
+    $targetDirectory = "uploads/"; // Directory where uploaded files will be stored
+    // Check if file is uploaded successfully
+    if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"]["tmp_name"]) && !empty($_POST["date"]) && !empty($_POST["slider"]) && !empty($_POST["course"]) && !empty($_POST["name"])) {
+        $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]); // Path to the uploaded file
 
-// Check if file is uploaded successfully
-if(isset($_FILES["fileToUpload"]["tmp_name"]) && !empty($_FILES["fileToUpload"]["tmp_name"]) && !empty($_POST["date"]) && !empty($_POST["slider"]) && !empty($_POST["course"]) && !empty($_POST["name"])) {
-    $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]); // Path to the uploaded file
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            // Proceed with file upload
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
+                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                $name = $_POST["name"];
+                $fileName = basename( $_FILES["fileToUpload"]["name"]);
+                $date = $_POST["date"];
+                $hodnoceni = $_POST["slider"];
+                $course = $_POST["course"];
 
-    // Check if image file is a actual image or fake image
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        // Proceed with file upload
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-            $name = $_POST["name"];
-            $fileName = basename( $_FILES["fileToUpload"]["name"]);
-            $date = $_POST["date"];
-            $hodnoceni = $_POST["slider"];
-            $course = $_POST["course"];
+                $sql = "INSERT INTO imgs (nazev,filename,date,hodnoceni,chod)
+                VALUES ('$name', '$fileName', '$date','$hodnoceni','$course')";
+                $conn->query($sql);
 
-            $sql = "INSERT INTO imgs (nazev,filename,date,hodnoceni,chod)
-            VALUES ('$name', '$fileName', '$date','$hodnoceni','$course')";
-            $conn->query($sql);
-
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "File is not an image.";
         }
     } else {
-        echo "File is not an image.";
+        echo "No file uploaded or file upload failed.";
     }
-} else {
-    echo "No file uploaded or file upload failed.";
-}
 ?>
 
 
+<!-- Log Out form -->
 <?php 
-if(isset($_POST["logout"])){
-    session_destroy();
-    header("Location: login.php");
-    exit;
-}
-
+    if(isset($_POST["logout"])){
+        session_destroy();
+        header("Location: login.php");
+        exit;
+    }
 ?>
 
 
