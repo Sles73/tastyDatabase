@@ -20,9 +20,9 @@
 
             echo "<div> 
                 <h2>".$row["nazev"].'</h2>
-                CourseDne: '.$row["date"].'<br>
-                CourseHodnoceno: '.$row["hodnoceni"].'/10<br>
-                CourseChod: '.$row["chod"].'<br>
+                Dne: '.$row["date"].'<br>
+                Hodnoceno: '.$row["hodnoceni"].'/10<br>
+                Chod: '.$row["chod"].'<br>
                 <img style="height: 50vh;" src="uploads/'.$row["fileName"].'" alt="'.$row["nazev"].'">
                 </div>';
 
