@@ -1,29 +1,86 @@
-div
+:root
 {
-    width: 20vw;
-    height: 20vw;
+    --background: #fcfcfc;
+    --font: #1d1d1d;
+    --tile: #001aff;
+}
+html
+{
+    margin: 0;
+}
+body
+{
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    background-color: var(--background);
+}
+header
+{
+    width: 100vw;
+    height: 10vh;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+#logo
+{
+    position: fixed;
+    width: 10vh;
+    height: 10vh;
+    left: 1.5vw;
+    top: 0vh;
+}
+#menu p
+{
+    position: fixed;
+    top: 0vh;
+    left: 7vw;
+    font-size: 3vh;
+    font-weight: 500;
+}
+#menu
+{
     position: absolute;
-    top: 8vh;
-    left: 40vw;
+    right: 7vw;
+    top: 3.5vh;
 }
-img
+#menu a
 {
-    width: 20vw;
-    height: 20vw;
+    color: var(--font);
+    margin-left: 2vw;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 2.5vh;
 }
-form
-{   
-    width: 40vw;
-    position: relative;
-    top: 43vh;
-    left: 30vw;
+section
+{
+    width: 70vw;
+    margin: 5vh auto 3vh auto;
     display: flex;
     justify-content: center;
 }
-input
+#search
+{
+    width: 35vw;
+    height: 30vh;
+    border-radius: 30px;
+    animation: otoceni 15s linear infinite;
+    background-image: linear-gradient(-25deg, var(--tile), #009be2);
+}
+@keyframes otoceni
+{
+    0% 
+    {
+        background-image: linear-gradient(-10deg, var(--tile), #009be2);
+    }
+    100% 
+    {
+        background-image: linear-gradient(-50deg, var(--tile), #009be2);
+    }
+}
+#searchBar
 {
     width: 30vw;
     height: 5vh;
+    margin: 2vh auto 2vh auto;
     border-radius: 20px;
-    border: 
 }
