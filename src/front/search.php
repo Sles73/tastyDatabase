@@ -33,7 +33,22 @@
     }
     if (isset($_POST['clear']))
     {
-        
+        $sql = "SELECT * FROM imgs WHERE nazev LIKE '%$search%'
+                ORDER BY date;";
+                $result = $conn->query($sql);
+
+        while($row = $result->fetch_assoc()){
+
+            echo "<div> 
+                <h2>".$row["nazev"].'</h2>
+                Dne: '.$row["date"].'<br>
+                Hodnoceno: '.$row["hodnoceni"].'/10<br>
+                Chod: '.$row["chod"].'<br>
+                <img style="height: 50vh;" src="uploads/'.$row["fileName"].'" alt="'.$row["nazev"].'">
+                </div>';
+
+
+        }
     }
     $conn->close();
 ?>
