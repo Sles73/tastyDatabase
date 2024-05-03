@@ -4,12 +4,12 @@
     --header: #f1f1f1;
     --font: #011F2A;
     --fontHover: #00445d;
-    --tile: #011F2A;
+    --border: #292929;
+    --gray: #cdcdcd;
+    --darkgray: #929292;
+    --active: #7ce3ff;
 }
-html
-{
-    margin: 0;
-}
+html {margin: 0;}
 body
 {
     margin: 0;
@@ -23,7 +23,7 @@ header
     width: 100vw;
     height: 12vh;
     background-color: var(--header);
-    box-shadow: 0 0 2px #000000;
+    box-shadow: 0 0 3px var(--border);
 }
 #logo
 {
@@ -55,10 +55,7 @@ header
     font-weight: 500;
     font-size: 2.5vh;
 }
-.websites:hover
-{
-    color: var(--fontHover);
-}
+.websites:hover {color: var(--fontHover);}
 section
 {
     width: 70vw;
@@ -69,9 +66,7 @@ section
 #search
 {
     width: 35vw;
-    height: 30vh;
-    border-radius: 20px;
-    background-image: linear-gradient(-45deg, var(--tile), #012d3d);
+    height: 40vh;
 }
 #searchArea
 {
@@ -80,60 +75,98 @@ section
     border-radius: 20px;
     margin: 0;
     overflow: hidden;
-    background-color: var(--fontHover);
+    background-color: var(--header);
+    box-shadow: 0 0 2px var(--font);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#searchArea img
-{
-    width: 3vh;
-    height: 3vh;
-}
+#searchArea svg {fill: var(--font);}
 #searchBar
 {
     display: block;
     width: 25vw;
     height: 5vh;
     border-radius: 20px;
-    margin: 0 1vw;
+    margin: 0 2.5vw 0 1vw;
     border: none;
     font-size: 20px;
     font-family: "Nunito", sans-serif;
-    color: var(--header);
+    color: var(--font);
     background-color: transparent;
 }
-#searchBar:focus
+#searchBar:focus {outline: none;}
+::placeholder {color: var(--font);}
+#clear
 {
-    outline: none;
+    width: 4vh;
+    height: 4vh;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--background);
+    box-shadow: 0 0 2px var(--font);
+    font-size: 20px;
+    color: var(--font);
 }
-::placeholder 
+#outputArea
 {
-    color: var(--header);
+    width: 35vw;
+    height: fit-content;
+    overflow: hidden;
+    margin-top: 2vh;
+    border-radius: 20px;
+    box-shadow: 0 0 2px var(--font);
+    background-color: var(--header);
+    border-top: 1px solid transparent;
+}
+#outputArea p
+{
+    font-weight: 600;
+    font-size: 16px;
+    margin: 1.5vh 0 2vh 1vw;
+}
+.filtr
+{
+    width: fit-content;
+    height: 4.5vh;
+    border-radius: 30px;
+    /* border: solid 1px var(--darkgray); */
+    border: none;
+    margin: 0 0 2.5vh 1vw;
+    padding: 0 1vw 0 1vw;
+    box-shadow: 0 0 2px var(--font);
+    background-color: var(--background);
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: var(--font);
+}
+.filtr:active
+{
+    background-color: var(--active);
+}
+hr
+{
+    margin-top: 0;
+    border: none;
+    height: 1px;
+    background-color: var(--gray);
 }
 #output
 {
     width: 35vw;
-    color: var(--header);
-    margin: 0;
+    height: fit-content;
+    max-height: 22vh;
+    overflow: hidden;
+    color: var(--font);
+    font-size: 18px;
 }
 #whisper
 {
+    height: fit-content;
     list-style: none;
     margin: 0;
+    padding-left: 1vw;
+    overflow: hidden;
 }
-#whisper li
-{
-    margin-top: 2vh;
-}
-#submit
-{
-    width: 3vh;
-    height: 3vh;
-    border: none;
-    border-radius: 15px;
-    background-color: #ffffff4d;
-    color: var(--header);
-    backdrop-filter:  blur(2.2px);
-    -webkit-backdrop-filter: blur(2.2px);
-}
+#whisper:first-child {margin-top: 2vh;}
+#whisper li {margin-bottom: 2vh;}

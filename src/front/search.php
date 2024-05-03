@@ -22,13 +22,13 @@
 
         if ($result->num_rows > 0) {
             // výpis dat z každého řádku
-            echo "<ul id=\"whisper\">";
+            echo "<hr><ul id=\"whisper\">";
             while($row = $result->fetch_assoc()) {
             echo "<li>" . $row["nazev"]. "</li>";
             }
             echo "</ul>";
         } else {
-            echo "0 výsledků";
+            echo "";
         }
     }
     if (isset($_POST['clear']))
@@ -36,7 +36,7 @@
         $sql = "SELECT * FROM imgs WHERE nazev LIKE '%$search%'
                 ORDER BY date;";
                 $result = $conn->query($sql);
-
+        
         while($row = $result->fetch_assoc()){
 
             echo "<div> 
@@ -46,8 +46,6 @@
                 Chod: '.$row["chod"].'<br>
                 <img style="height: 50vh;" src="uploads/'.$row["fileName"].'" alt="'.$row["nazev"].'">
                 </div>';
-
-
         }
     }
     $conn->close();
