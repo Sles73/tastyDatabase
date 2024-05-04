@@ -66,184 +66,25 @@ header
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #websites a:hover {color: var(--fontHover);}
-#first
-{
-    width: 70vw;
-    height: 45vh;
-    margin: 5vh auto 3vh auto;
+footer
+{   
+    width: 100vw;
+    height: 20vh;
+    background-color: var(--darkgray);
+    box-shadow: inset 0 0 5px var(--border);
     display: flex;
-    justify-content: center;
-}
-#search
-{
-    width: 35vw;
-    height: 40vh;
-}
-#searchArea
-{
-    width: 35vw;
-    height: 7vh;
-    border-radius: 20px;
-    margin: 0;
-    overflow: hidden;
-    background-color: var(--header);
-    box-shadow: 0 0 2px var(--font);
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    color: var(--header);
 }
-#searchArea svg {fill: var(--font);}
-#searchBar
+#time {font-weight: 600;}
+footer a
 {
-    display: block;
-    width: 25vw;
-    height: 5vh;
-    border-radius: 20px;
-    margin: 0 2.5vw 0 1vw;
-    border: none;
-    font-size: 20px;
-    font-family: "Nunito", sans-serif;
     color: var(--font);
-    background-color: transparent;
-    cursor: url('img/text.svg'), url('img/text.png'), text;
-}
-#searchBar:focus {outline: none;}
-::placeholder {color: var(--font);}
-#clear
-{
-    width: 4vh;
-    height: 4vh;
-    border: none;
-    border-radius: 15px;
-    background-color: var(--background);
-    box-shadow: 0 0 2px var(--font);
-    font-size: 20px;
-    color: var(--font);
-    cursor: url('img/auto.svg'), url('img/auto.png'), auto;
-}
-#outputArea
-{
-    width: 35vw;
-    height: fit-content;
-    overflow: hidden;
-    margin-top: 2vh;
-    border-radius: 20px;
-    box-shadow: 0 0 2px var(--font);
-    background-color: var(--header);
-    border-top: 1px solid transparent;
-}
-#outputArea p
-{
-    font-weight: 600;
-    font-size: 16px;
-    margin: 1.5vh 0 2vh 1vw;
-}
-.filtr
-{
-    width: fit-content;
-    height: 4.5vh;
-    border-radius: 30px;
-    /* border: solid 1px var(--darkgray); */
-    border: none;
-    margin: 0 0 2.5vh 1vw;
-    padding: 0 1vw 0 1vw;
-    box-shadow: 0 0 2px var(--font);
-    background-color: var(--background);
-    font-family: "Nunito", sans-serif;
-    font-weight: 600;
-    color: var(--font);
+    margin-left: 1vw;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--header);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
-.filtr:active
-{
-    background-color: var(--active);
-}
-hr
-{
-    margin-top: 0;
-    border: none;
-    height: 1px;
-    background-color: var(--gray);
-}
-#output
-{
-    width: 35vw;
-    height: fit-content;
-    max-height: 22vh;
-    overflow: hidden;
-    color: var(--font);
-    font-size: 18px;
-}
-#whisper
-{
-    height: fit-content;
-    list-style: none;
-    margin: 0;
-    padding-left: 1vw;
-    overflow: hidden;
-}
-#whisper:first-child {margin-top: 2vh;}
-#whisper li {margin-bottom: 2vh;}
-#second
-{
-    width: 80vw;
-    margin: 5vh auto 3vh auto;
-    height: fit-content;
-}
-#result
-{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    column-gap: 2.5vw;
-    row-gap: 5vh;
-}
-.obed
-{
-    width: 25vw;
-    height: 62vh;
-    border-radius: 20px;
-    background-color: var(--header);
-    box-shadow: 0 0 2px var(--font);
-    position: relative;
-}
-#rating
-{
-    width: 17vh;
-    height: 17vh;
-    border-radius: 20px;
-    background-color: #ffffff85;
-    z-index: 2;
-    position: absolute;
-    top: -3vh;
-    right: 0;
-    rotate: 15deg;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    box-shadow: 0 0 10px #011f2a33;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#rating p
-{
-    color: var(--header);
-    font-size: 25px;
-    font-weight: 800;
-    margin: 0;
-    text-shadow: 0 0 10px var(--font);
-    /* -webkit-text-stroke: 1px var(--border); */
-}
-.obed img
-{
-    width: 45vh;
-    height: 45vh;
-    border-radius: 20px;
-    margin: 3vh auto 2vh auto;
-    box-shadow: 0 0 2px var(--font);
-    display: block;
-}
-.obed h2
-{
-    margin: 0 0 1vh 1.5vw;
-}
-.obed p{margin-left: 1.5vw;}

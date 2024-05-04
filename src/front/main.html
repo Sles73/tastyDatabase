@@ -4,31 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleMain.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/OIG4.MCf6pK7MGadu-removebg-preview.png" type="image/x-icon">
+    <title>Tastybase</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
         $("#searchBar").on("keyup", function() {
-            var search = $(this).val();
-            console.log(search); // Přidejte tento řádek
-            if (search != '') {
-            $.ajax({
-                url: 'search.php',
-                method: 'POST',
-                data: {searchBar:search},
-                success: function(data) {
-                $('#output').html(data);
+                var search = $(this).val();
+                console.log(search); // Přidejte tento řádek
+                if (search != '')
+                {
+                    $.ajax({
+                        url: 'search.php',
+                        method: 'POST',
+                        data: {searchBar:search},
+                        success: function(data) {
+                            $('#output').html(data);
+                        }
+                    });
+                } 
+                else 
+                {
+                    $('#output').html('');
                 }
             });
-            } else {
-            $('#output').html('');
-            }
         });
-        });
+        window.onload = function() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ampm + ' ' + date.getDate() + '.' + (date.getMonth()+1) + '.' + ' ' + date.getFullYear();
+            document.getElementById('time').innerHTML = strTime;
+        };
     </script>
 </head>
 <body>
@@ -115,7 +131,8 @@
         </div>
     </section>
     <footer>
-
+        <p id="time"></p>
+        <a href="piko.kvalitne.cz/about.html">piko.kvalitne.cz</a>
     </footer>     
 </body>
 </html>
