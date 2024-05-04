@@ -34,14 +34,16 @@
 <body>
     <header>
         <div id="menu">
-            <img id="logo" src="img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="Logo">
-            <p>Tasty Database</p>
-            <a class="websites" href="about.html">O Projektu</a>
-            <a class="websites" href="main.html">Vyhledání</a>
-            <a class="websites" href="login.html">Přihlášení</a>
+            <img id="logo" draggable="false" src="img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="Logo">
+            <h1>Tasty Database</h1>
+            <div id="websites">
+                <a href="about.html">O Projektu</a>
+                <a href="main.html">Vyhledání</a>
+                <a href="login.html">Přihlášení</a>
+            </div>
         </div>
     </header>
-    <section>
+    <section id="first">
         <form id="search" action="search.php" method="POST">
             <div id="searchArea">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25px" height="25px">
@@ -56,13 +58,64 @@
                 <input class="filtr" type="submit" value="Času">
                 <input class="filtr" type="submit" value="Abecedně">
                 <input class="filtr" type="submit" value="Chod">
-                <!-- <hr> -->
                 <div id="output"></div>
             </div>
         </form>
     </section>
+    <section id="second">
+        <div id="result">
+            <div class="obed"> 
+                <div id="rating">
+                    <p>8/10</p>
+                </div>
+                <img draggable="false" src="img/gettyimages-1042132904.webp" alt="jídlo">
+                <h2>Burgir a hrany</h2>
+                <p>27.8. 2006 &emsp; Chod: 1</p>
+            </div>
+            <div class="obed"> 
+                <div id="rating">
+                    <p>8/10</p>
+                </div>
+                <img draggable="false" src="img/gettyimages-1042132904.webp" alt="jídlo">
+                <h2>Burgir a hrany</h2>
+                <p>27.8. 2006 &emsp; Chod: 1</p>
+            </div>
+            <div class="obed"> 
+                <div id="rating">
+                    <p>8/10</p>
+                </div>
+                <img draggable="false" src="img/gettyimages-1042132904.webp" alt="jídlo">
+                <h2>Burgir a hrany</h2>
+                <p>27.8. 2006 &emsp; Chod: 1</p>
+            </div>
+            <div class="obed"> 
+                <div id="rating">
+                    <p>8/10</p>
+                </div>
+                <img draggable="false" src="img/gettyimages-1042132904.webp" alt="jídlo">
+                <h2>Burgir a hrany</h2>
+                <p>27.8. 2006 &emsp; Chod: 1</p>
+            </div>
+            <div class="obed"> 
+                <div id="rating">
+                    <p>8/10</p>
+                </div>
+                <img draggable="false" src="img/gettyimages-1042132904.webp" alt="jídlo">
+                <h2>Burgir a hrany</h2>
+                <p>27.8. 2006 &emsp; Chod: 1</p>
+            </div>
+            <div class="obed"> 
+                <div id="rating">
+                    <p>8/10</p>
+                </div>
+                <img draggable="false" src="img/gettyimages-1042132904.webp" alt="jídlo">
+                <h2>Burgir a hrany</h2>
+                <p>27.8. 2006 &emsp; Chod: 1</p>
+            </div>
+        </div>
+    </section>
     <footer>
 
-    </footer>
+    </footer>     
 </body>
 </html>
