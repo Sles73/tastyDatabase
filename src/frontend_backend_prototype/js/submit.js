@@ -6,24 +6,23 @@ function handleSubmit(event) {
     event.preventDefault(); // Prevent form submission
     const form = event.target;
     const password = form.password.value;
+    const username = form.username.value;
 
     // Hash the password
     const hashedPassword = hashPassword(password);
 
-    // Create a hidden input field to store the hashed password
-    const hashedPasswordInput = document.createElement('input');
-    hashedPasswordInput.type = 'hidden';
-    hashedPasswordInput.name = 'hashedPassword';
-    hashedPasswordInput.value = hashedPassword;
-
-    // Append the hidden input field to the form
-    form.appendChild(hashedPasswordInput);
-
-    // Remove the password input field from the form
-    form.removeChild(form.querySelector('#password'));
-
     // Submit the form
-    form.submit();
+    $.ajax({
+        url: "php/verification.php", // URL of the main content HTML file
+        type: 'POST',
+        data: {username: username, hashedPassword:  hashedPassword},
+        success: function(response){
+            loadMainContent("adminPage.html");
+        },
+        error: function(xhr, status, error){
+            console.error('AJAX Error:', status, error);
+        }
+    });
 }
 
 function handleSubmitForUserAdd(event) {
