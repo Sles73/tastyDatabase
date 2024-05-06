@@ -9,6 +9,15 @@ if(isset($_POST["sort"]))
         case "hodnoceni":
             $sort = "hodnoceni DESC";
             break;
+        case "date":
+            $sort = "date DESC";
+            break;
+        case "abcd":
+            $sort = "nazev";
+            break;
+        case "chod":
+            $sort = "chod ";
+            break;
         default:
             $sort = "imgID";
             break;
