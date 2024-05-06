@@ -1,0 +1,90 @@
+:root
+{
+    --background: #e0e0e0;
+    --header: #f1f1f1;
+    --font: #011F2A;
+    --fontHover: #00445d;
+    --border: #292929;
+    --gray: #cdcdcd;
+    --darkgray: #929292;
+    --active: #7ce3ff;
+}
+html
+{
+    margin: 0;
+    scrollbar-width: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+body
+{
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    color: var(--font);
+    background-color: var(--background);
+    cursor: url('img/auto.svg'), url('img/auto.png'), auto;
+}
+header
+{
+    width: 100vw;
+    height: 12vh;
+    background-color: var(--header);
+    box-shadow: 0 0 3px var(--border);
+}
+#logo
+{
+    width: 12vh;
+    height: 12vh;
+    margin-left: 3vw;
+}
+#menu
+{
+    width: 100vw;
+    display: flex;
+}
+#menu h1
+{
+    margin: 3.5vh 0 0 1vw;
+    font-size: 4vh;
+    font-weight: 700;
+}
+#websites
+{
+    position: absolute;
+    right: 3vw;
+    top: 4vh;
+}
+#websites a
+{
+    color: var(--font);
+    margin-left: 2vw;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 2.5vh;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+}
+#websites a:hover {color: var(--fontHover);}
+footer
+{   
+    width: 100vw;
+    height: 20vh;
+    background-color: var(--darkgray);
+    box-shadow: inset 0 0 5px var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--header);
+}
+#time {font-weight: 600;}
+footer a
+{
+    color: var(--font);
+    margin-left: 1vw;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--header);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+}
