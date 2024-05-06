@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/styleMain.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/magic.js"></script>
     <script src="js/basic.js"></script>
-    <script src="js/search.js"></script>
+    
 </head>
 <body>
     <header>
@@ -22,9 +22,9 @@
             <img id="logo" draggable="false" src="img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="Logo">
             <h1>Tasty Database</h1>
             <div id="websites">
-                <a href="about.html">O Projektu</a>
-                <a href="main.html">Vyhledání</a>
-                <a href="login.html">Přihlášení</a>
+                <a onclick="loadMainContent('about.html')">O Projektu</a>
+                <a onclick="loadMainContent('main.html')">Vyhledání</a>
+                <a onclick="loadMainContent('login.html')">Přihlášení</a>
             </div>
         </div>
     </header>
