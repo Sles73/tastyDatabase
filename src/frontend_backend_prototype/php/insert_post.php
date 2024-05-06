@@ -25,7 +25,7 @@ if(isset($_POST["sort"]))
                 <p>'.$row["hodnoceni"].'/10</p>
             </div>
             <img draggable="false" src="uploads/'.$row["fileName"].'" alt="jídlo">
-            <h2>'.$row["nazev"].'</h2>
+            <h2 id="nazev">'.$row["nazev"].'</h2>
             <p>'.date("d.m. Y", strtotime($row["date"])).' &emsp; Chod: '.$row["chod"].'</p>
         </div>';
         }

@@ -12,7 +12,8 @@
 html
 {
     margin: 0;
-    scrollbar-width: none;
+    overflow-x: hidden;
+    scrollbar-width: 20px;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;

@@ -178,15 +178,41 @@ hr
 }
 .obed img
 {
-    width: 24vw;
-    height: 24vw;
+    width: 22vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 20px;
-    margin: 3vh auto 2vh auto;
+    margin: 3.5vh auto 2vh auto;
     box-shadow: 0 0 2px var(--font);
     display: block;
 }
 .obed h2
 {
     margin: 0 0 1vh 1.5vw;
+    height: 4vh;
+    overflow-y: hidden;
 }
+/* ::-webkit-scrollbar-track
+{
+    background-color: transparent;
+}
+::-webkit-scrollbar-track-piece
+{
+    background-color: transparent;
+}
+::-webkit-scrollbar
+{
+    size: 0;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: #16a7dc;
+    border-radius: 20px;
+    border: 0.35vw solid transparent;
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover
+{
+    background-color: #f86306;
+} */
 .obed p{margin-left: 1.5vw;}
