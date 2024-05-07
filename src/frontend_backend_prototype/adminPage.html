@@ -1,3 +1,88 @@
+<form action="" method="post">
+    <h2>Welcome <span id="welcome"></span>!</h2>
+    <button type="submit" name="logout">Log out</button>
+</form>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date">
+    </div>
+    <div>
+        <label for="course">Select the course</label>
+        <select id="course" name="course">
+            <option value="1">Course 1</option>
+            <option value="2">Course 2</option>
+            <option value="3">Course 3</option>
+        </select>
+    </div>
+    <div>
+        <label for="slider">Select a number from 1 to 10:</label>
+        <input type="range" id="slider" name="slider" min="1" max="10" step="1">
+    </div>
+    <div style="margin-top: 20px;">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+    </div>
+    <div style="margin-top: 20px;">
+        <input type="submit" value="Upload Image" name="submit">
+    </div>
+</form>
+
+<form onsubmit="handleSubmitForUserAdd(event)" method="post" action="addUser.php">
+    <h3>Přidání uživatele</h3>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="passwordAgain" name="passwordAgain" required><br><br>
+    <p id="warning"></p>
+    <button type="submit" name="addUser">Submit</button>
+</form>
+
+<form onsubmit="handleSubmitForUserModify(event)" method="post" action="modifyUser.php" id="modifyUser">
+    <h3>user management</h3>
+    <label for="username">Username:</label><br>
+    <select type="text" id="username" name="username" required>
+    <!--    <?php 
+                  $sql = "SELECT * FROM users";                           
+                  $result = $conn->query($sql);
+
+                  if ($result->num_rows > 0) {                          
+                  // output data of each row
+                  while($row = $result->fetch_assoc()) {
+                    echo '<option value="'.$row["userID"].'">'.$row["username"].'</option>';
+                  }
+                  } else {
+                  echo "0 results";
+                  }
+              ?>    -->
+    </select>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" ><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="passwordAgain" name="passwordAgain" ><br><br>
+    <p id="text"></p>
+    <button type="submit" name="changePassword">changePassword</button>
+    <button type="submit" id="delete" style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get today's date
+        var today = new Date().toISOString().split('T')[0];
+
+        // Set the input value to today's date
+        document.getElementById("date").value = today;
+    });
+</script>
+
+
 <h1>admin page</h1>
 <div id="result"></div>
 <script>
@@ -5,9 +90,19 @@
     $.ajax({
         url: 'php/dashboard.php',
         type: 'POST',
+        dataType: 'json',
+        data:{checkLogin:true},
         success: function(response){
-            $('#result').html(response);
-            console.log("done");
+            console.log('admin login check:', response.login);
+            // Access and use the JSON data
+            var chacked = response.login;
+            if(response.login == true){
+                var welcome = response.username;
+                $('#welcome').html(welcome);
+            }else{
+                //loadMainContent("login.html");
+            }
+            
         },
         error: function(xhr, status, error){
             console.error('AJAX Error:', status, error);

@@ -5,12 +5,22 @@ session_start();
 
 // Check if user is logged in, if not, redirect to login page
 if (!isset($_SESSION['username'])) {
-    header("Location: index.html");
-    exit;
+    $data = array('login' => false);
+    
+}else{
+    $data = array('login' => true);
+    $username = $_SESSION['username'];
+    // If logged in, welcome the user
+    $data = array_merge($data, array('username' => $username));
 }
 
-// If logged in, welcome the user
-echo "Welcome, " . $_SESSION['username'] . "!";
+if(isset($_POST["checkLogin"])){
+    $dataJson = json_encode($data);
+    // Send JSON response back to the client
+    header('Content-Type: application/json');
+    echo $dataJson;
+}
+
 ?>
 
 
