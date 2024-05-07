@@ -1,5 +1,24 @@
+
 function hashPassword(password) {
     return CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+}
+
+function checkLogin(){
+    $.ajax({
+        url: "php/verification.php", // URL of the main content HTML file
+        type: 'POST',
+        data:{checkLogin:true},
+        dataType: 'json',
+        success: function(response){
+            console.log('Received JSON data:', response);
+            // Access and use the JSON data
+            var chacked = data.login;
+            console.log('Chacked login:', chacked);
+        },
+        error: function(xhr, status, error){
+            console.error('AJAX Error:', status, error);
+        }
+    });
 }
 
 function handleSubmit(event) {

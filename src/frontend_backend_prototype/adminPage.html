@@ -1,1 +1,16 @@
 <h1>admin page</h1>
+<div id="result"></div>
+<script>
+    console.log("však to dělám ty píčo");
+    $.ajax({
+        url: 'php/dashboard.php',
+        type: 'POST',
+        success: function(response){
+            $('#result').html(response);
+            console.log("done");
+        },
+        error: function(xhr, status, error){
+            console.error('AJAX Error:', status, error);
+        }
+    });
+</script>
