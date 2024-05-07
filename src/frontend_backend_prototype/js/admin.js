@@ -20,6 +20,12 @@ window.onload = function(){
             console.error('AJAX Error:', status, error);
         }
     });
+    // Get today's date
+    var today = new Date().toISOString().split('T')[0];
+
+    // Set the input value to today's date
+    document.getElementById("date").value = today;
+
 }
 
 function post(input_type){
@@ -41,5 +47,10 @@ function post(input_type){
 }
 
 function response_action(json){
-    console.log(json);
+    console.log(json.response_type);
+    switch(json.response_type){
+        case 'log_out':
+            loadMainContent(json.redirect);
+            break;
+    }
 }

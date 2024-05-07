@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
     if(isset($_POST["type"])){
         switch($_POST["type"]){
             case "logOut":
-                //session_destroy();
+                session_destroy();
                 $data['response_type'] = 'log_out';
                 $data['redirect'] = 'login.html';
                 break;

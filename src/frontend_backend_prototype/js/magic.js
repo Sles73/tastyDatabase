@@ -1,14 +1,23 @@
 
 $(document).ready(function(){
-    // Function to load main content using AJAX
-    
-    console.log("ajax triger");
-    loadMainContent("main.html"); // Load main content on page load
+    // Check if the username already exists in session storage
+    var curentWebsite = sessionStorage.getItem('website');
 
-    
+    if (curentWebsite) {
+        //loadMainContent(curentWebsite);
+        console.log(curentWebsite);
+        loadMainContent(curentWebsite);
+    } else {
+        // Username does not exist in session storage
+        // Set the username in session storage
+        console.log("default html");
+        loadMainContent("main.html");
+         // Load main content on page load
+    }   
 });
 
 function loadMainContent(where) {
+    sessionStorage.setItem('website', where);
     console.log(where);
     $.ajax({
         url: where, // URL of the main content HTML file
