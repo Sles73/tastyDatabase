@@ -3,31 +3,43 @@ include("connect.php");
 $conn = connect();
 session_start();
 
+$data = array();
 // Check if user is logged in, if not, redirect to login page
 if (!isset($_SESSION['username'])) {
-    $data = array('login' => false);
+    $data['login'] = false;
     
 }else{
-    $data = array('login' => true);
+    $data['login'] = true;
     $username = $_SESSION['username'];
     // If logged in, welcome the user
-    $data = array_merge($data, array('username' => $username));
+    $data['username'] = $username;
+    if(isset($_POST["type"])){
+        switch($_POST["type"]){
+            case "logOut":
+                //session_destroy();
+                $data['response_type'] = 'log_out';
+                $data['redirect'] = 'login.html';
+                break;
+        }
+    }
 }
 
-if(isset($_POST["checkLogin"])){
-    $dataJson = json_encode($data);
-    // Send JSON response back to the client
+
+    // Convert the array to JSON format
+    $jsonString = json_encode($data, JSON_PRETTY_PRINT);
     header('Content-Type: application/json');
-    echo $dataJson;
-}
+    // Output the JSON string
+    echo $jsonString;
+    
 
 ?>
 
 
 <?php 
-/*
+function logOut(){
         session_destroy();
         header("Location: login.html");
         exit;
-    */
+}
+
 ?>

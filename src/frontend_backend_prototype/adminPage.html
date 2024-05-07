@@ -1,6 +1,8 @@
+
+
 <form action="" method="post">
     <h2>Welcome <span id="welcome"></span>!</h2>
-    <button type="submit" name="logout">Log out</button>
+    <button type="button" name="logout" onclick="post('logOut')">Log out</button>
 </form>
 
 <form action="" method="post" enctype="multipart/form-data">
@@ -85,27 +87,4 @@
 
 <h1>admin page</h1>
 <div id="result"></div>
-<script>
-    console.log("však to dělám ty píčo");
-    $.ajax({
-        url: 'php/dashboard.php',
-        type: 'POST',
-        dataType: 'json',
-        data:{checkLogin:true},
-        success: function(response){
-            console.log('admin login check:', response.login);
-            // Access and use the JSON data
-            var chacked = response.login;
-            if(response.login == true){
-                var welcome = response.username;
-                $('#welcome').html(welcome);
-            }else{
-                //loadMainContent("login.html");
-            }
-            
-        },
-        error: function(xhr, status, error){
-            console.error('AJAX Error:', status, error);
-        }
-    });
-</script>
+<script src="js/admin.js"></script>
