@@ -10,15 +10,23 @@ function checkLogin(){
         data:{checkLogin:true},
         dataType: 'json',
         success: function(response){
-            console.log('Received JSON data:', response);
-            // Access and use the JSON data
-            var chacked = data.login;
-            console.log('Chacked login:', chacked);
+            goToAdmin(response);
         },
         error: function(xhr, status, error){
             console.error('AJAX Error:', status, error);
         }
     });
+}
+
+function goToAdmin(json){
+    console.log('Received JSON data:', json);
+    console.log('Login:', json.login);
+    // Access and use the JSON data
+    var chacked = json.login;
+    console.log('Chacked login:', chacked);
+    if(json.login == true){
+        loadMainContent("adminPage.html");
+    }
 }
 
 function handleSubmit(event) {
@@ -36,7 +44,7 @@ function handleSubmit(event) {
         type: 'POST',
         data: {username: username, hashedPassword:  hashedPassword},
         success: function(response){
-            loadMainContent("adminPage.html");
+            goToAdmin(response);
         },
         error: function(xhr, status, error){
             console.error('AJAX Error:', status, error);

@@ -15,9 +15,9 @@ echo "Welcome, " . $_SESSION['username'] . "!";
 
 
 <?php 
-
+/*
         session_destroy();
         header("Location: login.html");
         exit;
-    
+    */
 ?>
