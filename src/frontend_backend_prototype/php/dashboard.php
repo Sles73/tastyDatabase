@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
 }else{
     if(isset($_POST["type"])){
         switch($_POST["type"]){
+
             case "checkLogin":
                 $data['login'] = true;
                 $username = $_SESSION['username'];
@@ -19,6 +20,7 @@ if (!isset($_SESSION['username'])) {
                 $data['username'] = $username;
                 sendJson($data);
                 break;
+
             case "logOut":
                 session_destroy();
                 $data['response_type'] = 'log_out';
@@ -86,6 +88,28 @@ if (!isset($_SESSION['username'])) {
                     echo "informations not given";
                 }
                 break;
+
+            case "loadUser":
+                $sql = "SELECT * FROM users";                           
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {                          
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                echo '<option value="'.$row["userID"].'">'.$row["username"].'</option>';
+                }
+                } else {
+                echo "0 results";
+                }
+                break;
+            
+            case "deleteUser":
+                $username = $_POST["username"];
+                $sql = "DELETE FROM users WHERE userID = $username;";
+                $conn->query($sql);
+                echo "php deleting $username";
+                break;
+
         }
         
     }

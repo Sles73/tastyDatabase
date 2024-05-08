@@ -77,6 +77,41 @@ $(document).ready(function() {
     });
 });
 
+function load_users(){
+    console.log("loadingUsers");
+    $.ajax({
+        url: "php/dashboard.php", // URL of the main content HTML file
+        type: 'POST',
+        data:{type:"loadUser"},
+        input_type: "json",
+        success: function(response){
+            $('#usernames').html(response);
+        },
+        error: function(xhr, status, error){
+            console.error('AJAX Error:', status, error);
+        }
+    });
+}
+
+$(document).ready(function() {
+    $("#deleteUser").click(function() {
+        var username = document.getElementById("usernames").value;
+            $.ajax({
+                url: "php/dashboard.php",
+                type: "POST",
+                data: {type:"deleteUser", username: username},
+                success: function(response) {
+                    console.log(response);
+                    load_users();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Request failed:', error);
+                }
+            });
+        
+    });
+});
+
 function updateDateToCurrent() {
     var dateInput = document.getElementById("date");
     if (dateInput) {
@@ -107,3 +142,4 @@ function updateDateByDays(days) {
 }
 
 updateDateToCurrent();
+load_users();

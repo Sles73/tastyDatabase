@@ -51,23 +51,11 @@
     <button type="submit" onclick='event.preventDefault(event)' name="addUserSubmit" id="addUserSubmit">Submit</button>
 </form>
 
-<form onsubmit="handleSubmitForUserModify(event)" method="post" action="modifyUser.php" id="modifyUser">
+<form method="post" action="modifyUser.php" id="modifyUser">
     <h3>user management</h3>
     <label for="username">Username:</label><br>
-    <select type="text" id="username" name="username" required>
-    <!--    <?php 
-                  $sql = "SELECT * FROM users";                           
-                  $result = $conn->query($sql);
-
-                  if ($result->num_rows > 0) {                          
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                    echo '<option value="'.$row["userID"].'">'.$row["username"].'</option>';
-                  }
-                  } else {
-                  echo "0 results";
-                  }
-              ?>    -->
+    <select type="text" id="usernames" name="username" required>
+        
     </select>
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password" ><br><br>
@@ -75,7 +63,7 @@
     <input type="password" id="passwordAgain" name="passwordAgain" ><br><br>
     <p id="text"></p>
     <button type="submit" name="changePassword">changePassword</button>
-    <button type="submit" id="delete" style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+    <button type="submit" id="deleteUser" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
 </form>
 
 
