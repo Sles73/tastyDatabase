@@ -96,7 +96,7 @@ footer a
     z-index: 3;
     width: 25vw;
     height: 40vh;
-    position: absolute;
+    position: fixed;
     top: 20vh;
     left: 36.5vw;
     background-color: var(--background);
