@@ -8,6 +8,7 @@
     --gray: #cdcdcd;
     --darkgray: #929292;
     --active: #7ce3ff;
+    --fontLight: #011f2aa6;
 }
 html
 {
@@ -88,4 +89,73 @@ footer a
     font-weight: 700;
     color: var(--header);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+}
+#prihlaseni
+{
+    display: none;
+    z-index: 3;
+    width: 25vw;
+    height: 40vh;
+    position: absolute;
+    top: 20vh;
+    left: 36.5vw;
+    background-color: var(--background);
+    border-radius: 20px;
+    box-shadow: 0 0 2px var(--font);
+}
+#prihlaseniForm
+{
+    display: block;
+    width: 21vw;
+    margin: 3vh auto 0 auto;
+}
+#prihlaseniForm h2
+{
+    display: block;
+    width: min-content;
+    margin: 0 auto 3vh auto;
+}
+#prihlaseni label {font-weight: 500;}
+.prihlaseniInput
+{
+    margin-bottom: 3vh;
+    width: 21vw;
+    height: 5vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.prihlaseniInput:focus {outline: none;}
+.prihlaseniInput::placeholder {color: var(--fontLight);}
+#prihlaseni button
+{
+    width: 10vw;
+    height: 4.5vh;
+    display: block;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 0 2px var(--font);
+    background-color: var(--background);
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    color: var(--font);
+}
+#prihlaseni button:hover
+{
+    background-color: var(--gray);
+}
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000043;
+    z-index: 2;
 }

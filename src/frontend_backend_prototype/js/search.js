@@ -39,3 +39,5 @@ function cards_sort(sorting_method){
         }
     });
 }
+
+

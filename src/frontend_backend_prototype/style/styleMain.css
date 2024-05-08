@@ -64,6 +64,10 @@
     color: var(--font);
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
 }
+#clear:hover
+{
+    background-color: var(--gray);
+}
 #outputArea
 {
     width: 35vw;
@@ -97,9 +101,9 @@
     color: var(--font);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
-.filtr:active
+.filtr:hover
 {
-    background-color: var(--active);
+    background-color: var(--gray);
 }
 hr
 {
@@ -155,7 +159,7 @@ hr
     height: 17vh;
     border-radius: 20px;
     background-color: #ffffff85;
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     top: -3vh;
     right: 0;

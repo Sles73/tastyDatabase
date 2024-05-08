@@ -1,4 +1,15 @@
 <link rel="stylesheet" href="style/styleMain.css">
+    <div id="prihlaseni">
+        <form id="prihlaseniForm" onsubmit="handleSubmit(event)" method="post" action="php/verification.php">
+            <h2>Login</h2>
+            <label for="username">Uživatelské jméno</label>
+            <input class="prihlaseniInput" type="text" id="username" name="username" required placeholder="Napiš své uživatelské jméno">
+            <label for="password">Heslo</label>
+            <input class="prihlaseniInput" type="password" id="password" name="password" required placeholder="Napiš své heslo">
+            <button type="submit">Přihlásit</button>
+        </form>
+    </div>
+    <div id="overlay"></div>
     <section id="first">
         <form id="search" action="search.php" method="POST">
             <div id="searchArea">
