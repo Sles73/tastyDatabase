@@ -1,11 +1,10 @@
-
-
+<script src="js/admin.js"></script>
 <form action="" method="post">
     <h2>Welcome <span id="welcome"></span>!</h2>
     <button type="button" name="logout" onclick="post('logOut')">Log out</button>
 </form>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form enctype="multipart/form-data" id="imageForm">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name">
@@ -27,13 +26,37 @@
         <input type="range" id="slider" name="slider" min="1" max="10" step="1">
     </div>
     <div style="margin-top: 20px;">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
+        <label for="imageFile">Choose Image:</label><br>
+        <input type="file" id="fileToUpload" name="fileToUpload"><br><br>
     </div>
     <div style="margin-top: 20px;">
-        <input type="submit" value="Upload Image" name="submit">
+        <button id="uploadButton" type="button">Upload Image</button>
     </div>
 </form>
+
+<script>
+    $(document).ready(function() {
+        $("#uploadButton").click(function() {
+            var formData = new FormData($("#imageForm")[0]);
+            formData.append("type", "imgForm");
+            console.log(formData);
+            $.ajax({
+                url: "php/dashboard.php",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    alert(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Request failed:', error);
+                }
+            });
+        });
+    });
+    </script>
+
 
 <form onsubmit="handleSubmitForUserAdd(event)" method="post" action="addUser.php">
     <h3>Přidání uživatele</h3>
@@ -79,4 +102,4 @@
 
 <h1>admin page</h1>
 <div id="result"></div>
-<script src="js/admin.js"></script>
+
