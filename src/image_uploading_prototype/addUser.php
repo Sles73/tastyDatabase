@@ -21,5 +21,5 @@ session_start();
         $conn->query($sql);
         header("Location: dashboard.php");
     }
-$conn->close();
+
 ?>

@@ -12,7 +12,7 @@ if(!empty($_POST['username']) && !empty($_POST['hashedPassword'])){
     $password = $_POST['hashedPassword'];
 
 
-    $stmt = $conn->query("SELECT password FROM users WHERE username = '$username'");
+    $stmt = $conn->query("SELECT password, userID FROM users WHERE username = '$username'");
     $user = $stmt->fetch_assoc();
 
     if ($user) {
@@ -20,6 +20,7 @@ if(!empty($_POST['username']) && !empty($_POST['hashedPassword'])){
         if (password_verify($password, $user['password'])) {
                 // Valid credentials, start session and redirect
             $_SESSION['username'] = $username;
+            $_SESSION['userID'] = $user["userID"];
             $data = array('login' => true); // Redirect to dashboard or any other secure page
         } else {
             // Invalid credentials, redirect back to login page with an error message

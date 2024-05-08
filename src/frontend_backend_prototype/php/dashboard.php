@@ -10,14 +10,15 @@ if (!isset($_SESSION['username'])) {
     sendJson($data);
     
 }else{
-    $data['login'] = true;
-    $username = $_SESSION['username'];
-    // If logged in, welcome the user
-    $data['username'] = $username;
-
-
     if(isset($_POST["type"])){
         switch($_POST["type"]){
+            case "checkLogin":
+                $data['login'] = true;
+                $username = $_SESSION['username'];
+                // If logged in, welcome the user
+                $data['username'] = $username;
+                sendJson($data);
+                break;
             case "logOut":
                 session_destroy();
                 $data['response_type'] = 'log_out';
@@ -43,9 +44,10 @@ if (!isset($_SESSION['username'])) {
                             $date = $_POST["date"];
                             $hodnoceni = $_POST["slider"];
                             $course = $_POST["course"];
+                            $addedBy = $_SESSION["userID"];
 
-                            $sql = "INSERT INTO imgs (nazev,filename,date,hodnoceni,chod)
-                            VALUES ('$name', '$fileName', '$date','$hodnoceni','$course')";
+                            $sql = "INSERT INTO imgs (nazev,addedBy,filename,date,hodnoceni,chod)
+                            VALUES ('$name', '$addedBy', '$fileName', '$date','$hodnoceni','$course')";
                             $conn->query($sql);
                         } else {
                             echo "Sorry, there was an error uploading your file.";
@@ -56,6 +58,34 @@ if (!isset($_SESSION['username'])) {
                 } else {
                     echo "No file uploaded or file upload failed or not all data given.";
                 }
+                break;
+                
+            case "addUser":
+                if(!empty($_POST["hashedPassword"]) && !empty($_POST["username"])) {
+                    $username = $_POST['username'];
+
+                    $stmt = $conn->query("SELECT password, userID FROM users WHERE username = '$username'");
+                    $user = $stmt->fetch_assoc();
+
+                    if ($user) {
+                        echo "user already exists";
+                    } else {
+                        
+                        $hashedPassword = $_POST["hashedPassword"];
+                
+                        $PHPhashedPassword = password_hash($hashedPassword, PASSWORD_DEFAULT);
+                
+                        $sql = "INSERT INTO users (username,password)
+                                VALUES ('$username', '$PHPhashedPassword')";
+                
+                        $conn->query($sql);
+                        
+                        echo "user added";
+                    }
+                }else{
+                    echo "informations not given";
+                }
+                break;
         }
         
     }
@@ -68,17 +98,11 @@ if (!isset($_SESSION['username'])) {
 
     
     
-
+$conn->close();
 ?>
 
 
 <?php 
-function logOut(){
-        session_destroy();
-        header("Location: login.html");
-        exit;
-}
-
 function sendJson($data){
     // Convert the array to JSON format
     $jsonString = json_encode($data, JSON_PRETTY_PRINT);

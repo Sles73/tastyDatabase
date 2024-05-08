@@ -29,4 +29,11 @@ function loadMainContent(where) {
             console.error('AJAX Error:', status, error);
         }
     });
+
+    switch(where){
+        case "adminPage.html":
+            console.log("adminPage setup triger")
+            setupAdminPage();
+            break;
+    }
 }
