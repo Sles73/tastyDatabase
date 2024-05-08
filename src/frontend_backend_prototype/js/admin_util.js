@@ -68,6 +68,7 @@ $(document).ready(function() {
                 success: function(response) {
                     const error = document.getElementById("warning");
                     error.textContent = response; 
+                    load_users();
                 },
                 error: function(xhr, status, error) {
                     console.error('Request failed:', error);
@@ -78,7 +79,6 @@ $(document).ready(function() {
 });
 
 function load_users(){
-    console.log("loadingUsers");
     $.ajax({
         url: "php/dashboard.php", // URL of the main content HTML file
         type: 'POST',
@@ -103,6 +103,8 @@ $(document).ready(function() {
                 success: function(response) {
                     console.log(response);
                     load_users();
+                    const error = document.getElementById("text");
+                    error.textContent = response; 
                 },
                 error: function(xhr, status, error) {
                     console.error('Request failed:', error);

@@ -107,7 +107,7 @@ if (!isset($_SESSION['username'])) {
                 $username = $_POST["username"];
                 $sql = "DELETE FROM users WHERE userID = $username;";
                 $conn->query($sql);
-                echo "php deleting $username";
+                echo "user deleted";
                 break;
 
         }
