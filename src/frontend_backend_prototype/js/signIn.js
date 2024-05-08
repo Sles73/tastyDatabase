@@ -1,10 +1,8 @@
-function jeToTam()
-{
+function jeToTam(){
     var prihlaseni = document.getElementById("prihlaseni");
     var overlay = document.getElementById("overlay");
     prihlaseni.style.display = "block";
     overlay.style.display = "block";
-    event.stopPropagation();
 }
 function aJeFuč(e)
 {

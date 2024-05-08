@@ -25,6 +25,12 @@ function goToAdmin(json){
     console.log('Chacked login:', chacked);
     if(json.login == true){
         loadMainContent("adminPage.html");
+        var event = new Event('click');
+        aJeFuč(event);
+        return true;
+    }else{
+        jeToTam();
+        return false;
     }
 }
 

@@ -5,7 +5,6 @@ $(document).ready(function(){
 
     if (curentWebsite) {
         //loadMainContent(curentWebsite);
-        console.log(curentWebsite);
         loadMainContent(curentWebsite);
     } else {
         // Username does not exist in session storage
@@ -18,7 +17,6 @@ $(document).ready(function(){
 
 function loadMainContent(where) {
     sessionStorage.setItem('website', where);
-    console.log(where);
     $.ajax({
         url: where, // URL of the main content HTML file
         type: 'GET',
@@ -32,7 +30,6 @@ function loadMainContent(where) {
 
     switch(where){
         case "adminPage.html":
-            console.log("adminPage setup triger")
             setupAdminPage();
             break;
     }

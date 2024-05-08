@@ -22,7 +22,7 @@ if (!isset($_SESSION['username'])) {
             case "logOut":
                 session_destroy();
                 $data['response_type'] = 'log_out';
-                $data['redirect'] = 'login.html';
+                $data['redirect'] = 'about.html';
                 sendJson($data);
                 break;
 
