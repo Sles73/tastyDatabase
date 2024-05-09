@@ -1,0 +1,75 @@
+#formArea
+{
+    width: 70vw;
+    margin: 0 auto 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.formElement
+{
+    
+}
+.formicka
+{
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    margin: 1vw auto 1vw auto;
+    background-color: var(--background);
+    border-radius: 20px;
+    box-shadow: 0 0 2px var(--font);
+}
+.formicka > *
+{
+    margin: 0 auto 0 auto;
+}
+.formicka h3 
+{
+    width: fit-content;
+    margin-bottom: 3vh;
+}
+::placeholder {color: var(--fontLight);}
+.formicka input[type="text"]
+{
+    margin-bottom: 3vh;
+    height: 4vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.formicka input[type="password"]
+{
+    margin-bottom: 3vh;
+    height: 4vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.formicka label {display: block;}
+.formicka input:focus {outline: none;}
+.formicka button
+{
+    width: 10vw;
+    height: 4.5vh;
+    display: block;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 0 2px var(--font);
+    background-color: var(--background);
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    color: var(--font);
+}
+.formicka button:hover
+{
+    background-color: var(--gray);
+}
+#modifyUser
+{
+    width: 20vw;
+}

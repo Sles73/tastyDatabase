@@ -9,6 +9,28 @@
     --darkgray: #929292;
     --active: #7ce3ff;
 }
+@media only screen and (max-width: 1000px) 
+{
+    #menu h1
+    {
+        display: none;
+    }
+    #websites a
+    {
+        margin-left: 1vw;
+        font-size: 2.5vh;
+    }
+    #logo
+    {
+        margin-left: 1vw;
+        width: 10vh;
+    }
+    #result
+    {
+        grid-template-columns: auto;
+    }
+
+}
 #first
 {
     width: 70vw;
@@ -147,7 +169,9 @@ hr
 .obed
 {
     width: 25vw;
-    height: 62vh;
+    height: auto;
+    aspect-ratio: 1 / 1.25;
+    /* height: 62vh; */
     border-radius: 20px;
     background-color: var(--header);
     box-shadow: 0 0 2px var(--font);
@@ -155,8 +179,9 @@ hr
 }
 #rating
 {
-    width: 17vh;
-    height: 17vh;
+    width: 9.5vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 20px;
     background-color: #ffffff85;
     z-index: 1;

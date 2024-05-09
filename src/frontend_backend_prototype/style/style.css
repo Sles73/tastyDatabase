@@ -10,6 +10,28 @@
     --active: #7ce3ff;
     --fontLight: #011f2aa6;
 }
+@media only screen and (max-width: 1000px) 
+{
+    #menu h1
+    {
+        display: none;
+    }
+    #websites a
+    {
+        margin-left: 1vw;
+        font-size: 2.5vh;
+    }
+    #logo
+    {
+        margin-left: 1vw;
+        width: 10vh;
+    }
+    #result
+    {
+        grid-template-columns: auto;
+    }
+
+}
 html
 {
     margin: 0;
@@ -38,7 +60,8 @@ header
 #logo
 {
     width: 12vh;
-    height: 12vh;
+    height: auto;
+    aspect-ratio: 1 / 1;
     margin-left: 3vw;
 }
 #menu

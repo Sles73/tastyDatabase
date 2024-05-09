@@ -1,70 +1,82 @@
 
-
+<link rel="stylesheet" href="style/styleAdmin.css">
 <form action="" method="post">
     <h2>Welcome <span id="welcome"></span>!</h2>
     <button type="button" name="logout" onclick="post('logOut')">Log out</button>
 </form>
+<div id="formArea">
+    <div class="formElement">
+        <form enctype="multipart/form-data" class="formicka" id="imageForm">
+            <h3>Přidání pokrmu</h3>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Napiš název jídla">
+            </div>
+            <div>
+                <label for="date">Select Date:</label>
+                <!-- <button id="prevDayButton" type="button" >&larr;</button> -->
+                <input type="date" id="date" name="date">
+                <!-- <button id="nextDayButton" type="button" >&rarr;</button> -->
+            </div>
+            <div>
+                <label for="course">Select the course</label>
+                <select id="course" name="course">
+                    <option value="1">Course 1</option>
+                    <option value="2">Course 2</option>
+                    <option value="3">Course 3</option>
+                </select>
+            </div>
+            <div>
+                <label for="slider">Select a number from 1 to 10:</label>
+                <input type="range" id="slider" name="slider" min="1" max="10" step="1">
+            </div>
+            <div style="margin-top: 20px;">
+                <label for="imageFile">Choose Image:</label>
+                <input type="file" id="fileToUpload" name="fileToUpload">
+            </div>
+            <div style="margin-top: 20px;">
+                <button id="uploadButton" type="submit">Upload Image</button>
+            </div>
+        </form>
+    </div>
+    <div class="formElement">
+        <form  method="post" class="formicka" id="addUser">
+            <h3>Přidání uživatele</h3>
+            <label for="username">Uživatelské jméno</label>
+            <input type="text" id="username" name="username" required placeholder="Napiš uživatelské jméno">
+            <label for="password">Heslo</label>
+            <input type="password" id="password" name="password" required placeholder="Napiš heslo">
+            <label for="password">Znovu Heslo</label>
+            <input type="password" id="passwordAgain" name="passwordAgain" required placeholder="Napiš stejné heslo">
+            <p id="warning"></p>
+            <button type="submit" onclick='event.preventDefault(event)' name="addUserSubmit" id="addUserSubmit">Submit</button>
+        </form>
+    </div>
+    <div class="formElement">
+        <form method="post" action="modifyUser.php" class="formicka" id="modifyUser">
+            <h3>Úprava uživatele</h3>
+            <label for="username">Uživatelské jméno</label>
+            <select type="text" id="usernames" name="username" required>
+                
+            </select>
+            <label for="password">Nové heslo</label>
+            <input type="password" id="password" name="password" placeholder="Napiš nové heslo">
+            <label for="password">Nové heslo znovu</label>
+            <input type="password" id="passwordAgain" name="passwordAgain" placeholder="Napiš nové heslo znovu">
+            <p id="text"></p>
+            <button type="submit" name="changePassword">changePassword</button>
+            <button type="submit" id="deleteUser" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+        </form>
+    </div>
+    
 
-<form enctype="multipart/form-data" id="imageForm">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="date">Select Date:</label>
-        <button id="prevDayButton" type="button" >&larr;</button>
-        <input type="date" id="date" name="date">
-        <button id="nextDayButton" type="button" >&rarr;</button>
-    </div>
-    <div>
-        <label for="course">Select the course</label>
-        <select id="course" name="course">
-            <option value="1">Course 1</option>
-            <option value="2">Course 2</option>
-            <option value="3">Course 3</option>
-        </select>
-    </div>
-    <div>
-        <label for="slider">Select a number from 1 to 10:</label>
-        <input type="range" id="slider" name="slider" min="1" max="10" step="1">
-    </div>
-    <div style="margin-top: 20px;">
-        <label for="imageFile">Choose Image:</label><br>
-        <input type="file" id="fileToUpload" name="fileToUpload"><br><br>
-    </div>
-    <div style="margin-top: 20px;">
-        <button id="uploadButton" type="submit">Upload Image</button>
-    </div>
-</form>
 
 
+    
 
-<form  method="post" id="addUser">
-    <h3>Přidání uživatele</h3>
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username" required><br><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" required><br><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="passwordAgain" name="passwordAgain" required><br><br>
-    <p id="warning"></p>
-    <button type="submit" onclick='event.preventDefault(event)' name="addUserSubmit" id="addUserSubmit">Submit</button>
-</form>
+    
+</div>
 
-<form method="post" action="modifyUser.php" id="modifyUser">
-    <h3>user management</h3>
-    <label for="username">Username:</label><br>
-    <select type="text" id="usernames" name="username" required>
-        
-    </select>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" ><br><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="passwordAgain" name="passwordAgain" ><br><br>
-    <p id="text"></p>
-    <button type="submit" name="changePassword">changePassword</button>
-    <button type="submit" id="deleteUser" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
-</form>
 
 
 
