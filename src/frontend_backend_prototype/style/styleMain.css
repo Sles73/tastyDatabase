@@ -169,7 +169,7 @@ hr
 .obed
 {
     width: 25vw;
-    height: auto;
+    height: min-content ;
     aspect-ratio: 1 / 1.25;
     /* height: 62vh; */
     border-radius: 20px;

@@ -121,6 +121,14 @@ function updateDateToCurrent() {
     }
 }
 
+$(document).ready(function(){
+    $("#slider").on("input",function(){   
+        var sliderValue = $(this).val();
+        $("#sliderOutput").text(sliderValue);
+    });
+});
+
+/*
 document.getElementById("prevDayButton").addEventListener("click", function() {
     // Call the function to update the date input to the previous day
     updateDateByDays(-1);
@@ -130,7 +138,7 @@ document.getElementById("nextDayButton").addEventListener("click", function() {
     // Call the function to update the date input to the next day
     updateDateByDays(1);
 });
-
+*/
 
 // Function to update date input by a specified number of days
 function updateDateByDays(days) {
