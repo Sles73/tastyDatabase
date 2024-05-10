@@ -7,7 +7,7 @@
     --border: #292929;
     --gray: #cdcdcd;
     --darkgray: #929292;
-    --yellow: #ffc65d;
+    --yellow: #ffcf55;
     --fontLight: #011f2aa6;
 }
 @media only screen and (max-width: 1000px) 
@@ -81,15 +81,15 @@
     height: 4vh;
     border: none;
     border-radius: 15px;
-    background-color: var(--background);
+    background-color: var(--yellow);
     box-shadow: 0 0 2px var(--font);
     font-size: 20px;
-    color: var(--font);
+    color: var(--header);
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
 }
 #clear:hover
 {
-    background-color: var(--gray);
+    background-color: #ffd468;
 }
 #outputArea
 {
@@ -118,7 +118,7 @@
     padding: 0 1vw 0 1vw;
     box-shadow: 0 0 2px var(--font);
     /* background-color: var(--background); */
-    background-color: #ffd468;
+    background-color: var(--yellow);
     font-family: "Nunito", sans-serif;
     font-weight: 600;
     color: var(--header);
@@ -126,7 +126,7 @@
 }
 .filtr:hover
 {
-    background-color: #ffcf55;
+    background-color: #ffd468;
 }
 hr
 {
@@ -170,11 +170,7 @@ hr
 .obed
 {
     width: 25vw;
-<<<<<<< Updated upstream
     height: min-content ;
-=======
-    height: min-content;
->>>>>>> Stashed changes
     aspect-ratio: 1 / 1.25;
     border-radius: 20px;
     /* background-color: var(--header); */
@@ -225,27 +221,144 @@ hr
     height: 4vh;
     overflow-y: hidden;
 }
-/* ::-webkit-scrollbar-track
-{
-    background-color: transparent;
-}
-::-webkit-scrollbar-track-piece
-{
-    background-color: transparent;
-}
-::-webkit-scrollbar
-{
-    size: 0;
-}
-::-webkit-scrollbar-thumb
-{
-    background-color: #16a7dc;
-    border-radius: 20px;
-    border: 0.35vw solid transparent;
-    background-clip: content-box;
-}
-::-webkit-scrollbar-thumb:hover
-{
-    background-color: #f86306;
-} */
 .obed p{margin-left: 1.5vw;}
+
+#jidloForm
+{
+    width: 40vw;
+    height: fit-content;
+    z-index: 3;
+    position: fixed;
+    top: 20vh;
+    left: 30vw;
+    display: none;
+    background-color: var(--header);
+    border-radius: 20px;
+    box-shadow: 0 0 2px var(--font);
+}
+.formicka
+{
+    width: 19vw;
+    display: block;
+    height: fit-content;
+    margin: 1vw auto 1vw auto;
+}
+.formicka > *
+{
+    margin: 0 auto 0 auto;
+}
+.formicka h3 
+{
+    width: fit-content;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
+::placeholder {color: var(--fontLight);}
+.formicka input[type="text"]
+{
+    margin-bottom: 3vh;
+    width: 18vw;
+    height: 4vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.formicka input[type="password"]
+{
+    margin-bottom: 3vh;
+    width: 18vw;
+    height: 4vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.formicka label {display: block;}
+.formicka input:focus {outline: none;}
+.formicka button
+{
+    width: 10vw;
+    height: 4.5vh;
+    display: block;
+    margin: 1.5vh auto;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 0 2px var(--font);
+    background-color: var(--background);
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    color: var(--font);
+}
+.formicka button:hover
+{
+    background-color: var(--gray);
+}
+input[type="date"]
+{
+    width: 19vw;
+    margin: 1vh 0 2vh 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    font-size: 18x;
+    color: var(--font);
+}
+#imageForm input[type="date"]
+{
+    width: 18.2vw;
+}
+select
+{
+    width: 18vw;
+    height: 4vh;
+    margin: 1vh 0 2vh 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 18x;
+    color: var(--font);
+}
+input[type="file"]
+{
+    width: 18vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 0 auto;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px dashed var(--darkgray);
+}
+#imageForm
+{
+    display: flex;
+    margin: 1vw;
+}
+#imageForm div
+{
+    display: block;
+    width: 18.5vw;
+    margin-right: 1vw;
+}
+#addMeal
+{
+    position: fixed;
+    bottom: 3vh;
+    right: 2vw;
+    width: 3.5vw;
+    border: none;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
+    background-color: var(--yellow);
+    box-shadow: 0 0 3px var(--border);
+    font-size: 30px;
+    font-family: "Nunito", sans-serif;
+    padding-bottom: 3px;
+    color: var(--header);
+}
+#addMeal:hover {background-color: #ffd468;}

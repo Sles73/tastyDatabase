@@ -5,38 +5,30 @@
     <button type="button" name="logout" onclick="post('logOut')">Log out</button>
 </form>
 <div id="formArea">
-    <div class="formElement">
+    <div class="formElement" id="prvni">
         <form enctype="multipart/form-data" class="formicka" id="imageForm">
-            <h3>Přidání pokrmu</h3>
             <div>
+                <h3>Přidání pokrmu</h3>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Napiš název jídla">
-            </div>
-            <div>
                 <label for="date">Select Date:</label>
                 <!-- <button id="prevDayButton" type="button" >&larr;</button> -->
                 <input type="date" id="date" name="date">
                 <!-- <button id="nextDayButton" type="button" >&rarr;</button> -->
-            </div>
-            <div>
                 <label for="course">Select the course</label>
                 <select id="course" name="course">
                     <option value="1">Course 1</option>
                     <option value="2">Course 2</option>
                     <option value="3">Course 3</option>
                 </select>
-            </div>
-            <div>
                 <label for="slider">Select a number from 1 to 10:</label>
                 <input type="range" id="slider" name="slider" min="0" max="10" step="1">
                 <span id="sliderOutput"></span>
             </div>
-            <div style="margin-top: 20px;">
+            <div>
                 <label for="imageFile">Choose Image:</label>
                 <input type="file" id="fileToUpload" name="fileToUpload">
-            </div>
-            <div style="margin-top: 20px;">
-                <button id="uploadButton" type="submit">Upload Image</button>
+                <button id="uploadButton" type="submit">Upload Image</button> 
             </div>
         </form>
     </div>
@@ -58,15 +50,17 @@
             <h3>Úprava uživatele</h3>
             <label for="username">Uživatelské jméno</label>
             <select type="text" id="usernames" name="username" required>
-                
             </select>
             <label for="password">Nové heslo</label>
             <input type="password" id="password" name="password" placeholder="Napiš nové heslo">
             <label for="password">Nové heslo znovu</label>
             <input type="password" id="passwordAgain" name="passwordAgain" placeholder="Napiš nové heslo znovu">
             <p id="text"></p>
-            <button type="submit" name="changePassword">changePassword</button>
-            <button type="submit" id="deleteUser" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+            <div>
+                <button type="submit" name="changePassword">changePassword</button>
+                <button type="submit" id="deleteUser" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+            </div>
+            
         </form>
     </div>
     

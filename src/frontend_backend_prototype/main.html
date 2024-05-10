@@ -19,8 +19,35 @@
         </form>
     </section>
     <section id="second">
-        <div id="result">
-        </div>
+        <div id="result"></div>
     </section>
+    <div id="jidloForm">
+        <form enctype="multipart/form-data" class="formicka" id="imageForm">
+            <div>
+                <h3>Přidání pokrmu</h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Napiš název jídla">
+                <label for="date">Select Date:</label>
+                <!-- <button id="prevDayButton" type="button" >&larr;</button> -->
+                <input type="date" id="date" name="date">
+                <!-- <button id="nextDayButton" type="button" >&rarr;</button> -->
+                <label for="course">Select the course</label>
+                <select id="course" name="course">
+                    <option value="1">Course 1</option>
+                    <option value="2">Course 2</option>
+                    <option value="3">Course 3</option>
+                </select>
+                <label for="slider">Select a number from 1 to 10:</label>
+                <input type="range" id="slider" name="slider" min="0" max="10" step="1">
+                <span id="sliderOutput"></span>
+            </div>
+            <div>
+                <label for="imageFile">Choose Image:</label>
+                <input type="file" id="fileToUpload" name="fileToUpload">
+                <button id="uploadButton" type="submit">Upload Image</button> 
+            </div>
+        </form>
+    </div>
+    <button onclick="jidloZde()" id="addMeal">+</button>
     <script src="js/search.js"></script>
 

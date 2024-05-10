@@ -7,7 +7,7 @@
     --border: #292929;
     --gray: #cdcdcd;
     --darkgray: #929292;
-    --yellow: #ffc65d;
+    --yellow: #ffcf55;
     --fontLight: #011f2aa6;
 }
 @media only screen and (max-width: 1000px) 
@@ -36,7 +36,7 @@ html
 {
     margin: 0;
     overflow-x: hidden;
-    scrollbar-width: 20px;
+    scrollbar-width: none;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -181,9 +181,6 @@ footer a
     bottom: 0;
     background-color: #00000043;
     backdrop-filter: blur(2px);
-<<<<<<< Updated upstream
-=======
     -webkit-backdrop-filter: blur(2px);
->>>>>>> Stashed changes
     z-index: 2;
 }

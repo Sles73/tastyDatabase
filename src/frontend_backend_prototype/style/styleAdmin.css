@@ -12,14 +12,17 @@
 }
 #formArea
 {
-    width: 70vw;
+    width: 88vw;
+    height: fit-content;
     margin: 0 auto 0 auto;
     display: grid;
     grid-template-columns: auto auto auto;
 }
+#prvni {width: 40vw;}
 .formElement
 {
-    width: 20vw;
+    width: 22vw;
+    height: fit-content;
     display: block;
     background-color: var(--header);
     border-radius: 20px;
@@ -27,8 +30,8 @@
 }
 .formicka
 {
+    width: 19vw;
     display: block;
-    width: fit-content;
     height: fit-content;
     margin: 1vw auto 1vw auto;
 }
@@ -40,11 +43,13 @@
 {
     width: fit-content;
     margin-bottom: 3vh;
+    margin-top: 3vh;
 }
 ::placeholder {color: var(--fontLight);}
 .formicka input[type="text"]
 {
     margin-bottom: 3vh;
+    width: 18vw;
     height: 4vh;
     border: none;
     border-bottom: 2px solid var(--gray);
@@ -55,6 +60,7 @@
 .formicka input[type="password"]
 {
     margin-bottom: 3vh;
+    width: 18vw;
     height: 4vh;
     border: none;
     border-bottom: 2px solid var(--gray);
@@ -82,3 +88,64 @@
 {
     background-color: var(--gray);
 }
+input[type="date"]
+{
+    width: 19vw;
+    margin: 1vh 0 2vh 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    font-size: 18x;
+    color: var(--font);
+}
+#imageForm input[type="date"]
+{
+    width: 18.2vw;
+}
+select
+{
+    width: 18vw;
+    height: 4vh;
+    margin: 1vh 0 2vh 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 18x;
+    color: var(--font);
+}
+input[type="file"]
+{
+    width: 18vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 0 auto;
+    background-color: transparent;
+    border: 2px dashed var(--darkgray);
+}
+#imageForm
+{
+    display: flex;
+    margin: 1vw;
+}
+#imageForm div
+{
+    display: block;
+    width: 18.5vw;
+    margin-right: 1vw;
+}
+/* #addUser
+{
+    width: 18vw;
+    display: block;
+    height: fit-content;
+    margin: 1vw auto 1vw auto;
+} */
+#modifyUser div
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1vw;
+}
+#modifyUser button {width: 9vw;}
