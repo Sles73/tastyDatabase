@@ -7,7 +7,7 @@
     --border: #292929;
     --gray: #cdcdcd;
     --darkgray: #929292;
-    --active: #7ce3ff;
+    --yellow: #ffc65d;
     --fontLight: #011f2aa6;
 }
 @media only screen and (max-width: 1000px) 
@@ -181,5 +181,9 @@ footer a
     bottom: 0;
     background-color: #00000043;
     backdrop-filter: blur(2px);
+<<<<<<< Updated upstream
+=======
+    -webkit-backdrop-filter: blur(2px);
+>>>>>>> Stashed changes
     z-index: 2;
 }

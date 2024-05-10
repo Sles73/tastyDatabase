@@ -7,7 +7,8 @@
     --border: #292929;
     --gray: #cdcdcd;
     --darkgray: #929292;
-    --active: #7ce3ff;
+    --yellow: #ffc65d;
+    --fontLight: #011f2aa6;
 }
 @media only screen and (max-width: 1000px) 
 {
@@ -112,20 +113,20 @@
     width: fit-content;
     height: 4.5vh;
     border-radius: 30px;
-    /* border: solid 1px var(--darkgray); */
     border: none;
     margin: 0 0 2.5vh 1vw;
     padding: 0 1vw 0 1vw;
     box-shadow: 0 0 2px var(--font);
-    background-color: var(--background);
+    /* background-color: var(--background); */
+    background-color: #ffd468;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
-    color: var(--font);
+    color: var(--header);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 .filtr:hover
 {
-    background-color: var(--gray);
+    background-color: #ffcf55;
 }
 hr
 {
@@ -169,11 +170,14 @@ hr
 .obed
 {
     width: 25vw;
+<<<<<<< Updated upstream
     height: min-content ;
+=======
+    height: min-content;
+>>>>>>> Stashed changes
     aspect-ratio: 1 / 1.25;
-    /* height: 62vh; */
     border-radius: 20px;
-    background-color: var(--header);
+    /* background-color: var(--header); */
     box-shadow: 0 0 2px var(--font);
     position: relative;
 }
