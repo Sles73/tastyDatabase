@@ -29,6 +29,7 @@ $(document).ready(function() {
     $("#uploadButton").click(function() {
         var formData = new FormData($("#imageForm")[0]);
         formData.append("type", "imgForm");
+        console.log(formData);
         $.ajax({
             url: "php/dashboard.php",
             type: "POST",

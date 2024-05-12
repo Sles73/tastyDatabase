@@ -13,7 +13,7 @@ function jidloFuč(e)
     var jidlo = document.getElementById("jidloForm");
     var overlay = document.getElementById("overlay");
     if(jidlo != null){
-        if (!jidlo.contains(e.target) && jidloJe == true)
+        if (!jidlo.contains(e.target))
         {
             jidlo.style.display = 'none';
             overlay.style.display = "none";
