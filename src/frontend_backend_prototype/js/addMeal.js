@@ -20,6 +20,26 @@ function jidloFuč(e)
             jidloJe = false;
         }
     }    
-    
 }
+
 document.addEventListener('click', jidloFuč);
+
+checkLogin(addMealSetup);
+
+function addMealSetup(json){
+    if(json.login == true){
+        jidloUkazatelZde();
+    }else{
+        jidloUkazatelFuč();
+    }
+}
+
+function jidloUkazatelZde(){
+    var jidlo = document.getElementById("addMeal");
+    jidlo.style.display = "block";
+}
+function jidloUkazatelFuč()
+{
+    var jidlo = document.getElementById("addMeal");
+    jidlo.style.display = 'none';   
+}

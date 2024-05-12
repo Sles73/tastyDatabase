@@ -2,14 +2,14 @@ function hashPassword(password) {
     return CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
 }
 
-function checkLogin(){
+function checkLogin(outputFunction){
     $.ajax({
         url: "php/verification.php", // URL of the main content HTML file
         type: 'POST',
         data:{checkLogin:true},
         dataType: 'json',
         success: function(response){
-            goToAdmin(response);
+            outputFunction(response);
         },
         error: function(xhr, status, error){
             console.error('AJAX Error:', status, error);
