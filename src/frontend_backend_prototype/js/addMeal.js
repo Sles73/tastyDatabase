@@ -1,4 +1,4 @@
-var jidloJe;
+var jidloJe = false;
 
 function jidloZde(){
     var jidlo = document.getElementById("jidloForm");
@@ -12,11 +12,14 @@ function jidloFuč(e)
 {
     var jidlo = document.getElementById("jidloForm");
     var overlay = document.getElementById("overlay");
-    if (!jidlo.contains(e.target) && jidloJe == true)
-    {
-        jidlo.style.display = 'none';
-        overlay.style.display = "none";
-        jidloJe = false;
-    }
+    if(jidlo != null){
+        if (!jidlo.contains(e.target) && jidloJe == true)
+        {
+            jidlo.style.display = 'none';
+            overlay.style.display = "none";
+            jidloJe = false;
+        }
+    }    
+    
 }
 document.addEventListener('click', jidloFuč);
