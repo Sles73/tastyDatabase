@@ -18,11 +18,8 @@ function checkLogin(){
 }
 
 function goToAdmin(json){
-    console.log('Received JSON data:', json);
-    console.log('Login:', json.login);
     // Access and use the JSON data
     var chacked = json.login;
-    console.log('Chacked login:', chacked);
     if(json.login == true){
         loadMainContent("adminPage.html");
         var event = new Event('click');
