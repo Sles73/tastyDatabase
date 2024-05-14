@@ -166,21 +166,23 @@ hr
     display: grid;
     grid-template-columns: auto auto auto;
     */
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-wrap: wrap;
-    
-    column-gap: 2.5vw;
-    row-gap: 5vh;
+    /* column-gap: 2.5vw;
+    row-gap: 5vh; */
+    column-gap: 35px;
+    row-gap: 40px;
 }
 .obed
 {
     /*width: 25vw;*/
     width: 300px;
-
     height: min-content ;
     aspect-ratio: 1 / 1.25;
     border-radius: 20px;
-    /* background-color: var(--header); */
+    background-color: var(--header);
     box-shadow: 0 0 2px var(--font);
     position: relative;
 }
