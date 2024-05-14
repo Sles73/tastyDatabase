@@ -162,14 +162,21 @@ hr
 }
 #result
 {
+    /*
     display: grid;
     grid-template-columns: auto auto auto;
+    */
+    display: flex;
+    flex-wrap: wrap;
+    
     column-gap: 2.5vw;
     row-gap: 5vh;
 }
 .obed
 {
-    width: 25vw;
+    /*width: 25vw;*/
+    width: 300px;
+
     height: min-content ;
     aspect-ratio: 1 / 1.25;
     border-radius: 20px;
@@ -207,7 +214,8 @@ hr
 }
 .obed img
 {
-    width: 22vw;
+    /*width: 22vw;*/
+    width: 250px;
     height: auto;
     aspect-ratio: 1 / 1;
     border-radius: 20px;
