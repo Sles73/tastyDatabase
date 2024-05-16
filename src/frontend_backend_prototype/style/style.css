@@ -214,13 +214,78 @@ footer a
     color: var(--fontHover);
     text-decoration: underline;
 }
-.formElement
+.user
 {
     width: 22vw;
     height: fit-content;
     display: block;
+    position: fixed;
+    top: 20vh;
+    left: 39vw;
+    z-index: 3;
     border-top: 1px solid transparent;
     background-color: var(--header);
     border-radius: 20px;
     box-shadow: 0 0 2px var(--font);
 }
+.userForm
+{
+    width: 19vw;
+    display: block;
+    height: fit-content;
+    margin: 1vw auto 1vw auto;
+}
+.userForm > *
+{
+    margin: 0 auto 0 auto;
+}
+.userForm h3
+{
+    width: fit-content;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
+.userForm::placeholder {color: var(--fontLight);}
+.userForm input[type="text"]
+{
+    margin-bottom: 3vh;
+    width: 18vw;
+    height: 4vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.userForm input[type="password"]
+{
+    margin-bottom: 3vh;
+    width: 18vw;
+    height: 4vh;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    font-family: "Nunito", sans-serif;
+    color: var(--font);
+    background-color: transparent;
+}
+.userForm label {display: block;}
+.userForm input:focus {outline: none;}
+.userForm button
+{
+    width: 10vw;
+    height: 4.5vh;
+    display: block;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 0 2px var(--font);
+    background-color: var(--background);
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    color: var(--font);
+}
+.userForm button:hover
+{
+    background-color: var(--gray);
+}
+#addUser {display: none;}
