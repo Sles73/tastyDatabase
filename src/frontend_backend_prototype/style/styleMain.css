@@ -373,3 +373,7 @@ input[type="file"]
     color: var(--header);
 }
 #addMeal:hover {background-color: #ffd468;}
+
+.imgDeleteButton{
+    display: none;
+}
