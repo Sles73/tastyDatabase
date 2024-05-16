@@ -25,13 +25,15 @@ $(document).ready(function() {
         var search = $("#searchBar").val();
         event.preventDefault(); 
 
-        console.log("Form Data:");
-        console.log("userInput:", search);
-
         cards_sort("textInput",search)
+    });
+});
 
-    
-        
+$(document).ready(function() {
+    $("#clear").click(function() {
+        cards_sort("");
+        $("#searchBar").val('');
+
     });
 });
 
@@ -50,8 +52,6 @@ $(document).ready(function(){
 
 function cards_sort(sorting_method = sessionStorage.getItem('search'),searchPhrase = null){
     sessionStorage.setItem('search', sorting_method);
-    console.log("sorting method ",sorting_method);  
-    console.log("search phrase ", )
     $.ajax({
         url: 'php/insert_post.php',
         type: 'POST',
