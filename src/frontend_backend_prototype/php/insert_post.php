@@ -35,6 +35,7 @@ if(isset($_POST["sort"]))
             </div>
             <img draggable="false" src="uploads/'.$row["fileName"].'" alt="jídlo">
             <h2 id="nazev">'.$row["nazev"].'</h2>
+            <button class="imgDeleteButton" value="'.$row["imgID"].'">&#215;</button>
             <p>'.date("d.m. Y", strtotime($row["date"])).' &emsp; Chod: '.$row["chod"].'</p>
         </div>';
         }

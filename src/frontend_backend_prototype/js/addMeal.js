@@ -27,12 +27,12 @@ document.addEventListener('click', jidloFuč);
 checkLogin(addMealSetup);
 
 function addMealSetup(json){
-    if(json.login == true){
-        jidloUkazatelZde();
-    }else{
-        jidloUkazatelFuč();
-    }
-}
+        if(json.login == true){
+            jidloUkazatelZde();
+        }else{
+            jidloUkazatelFuč();
+        }
+}   
 
 function jidloUkazatelZde(){
     var jidlo = document.getElementById("addMeal");
@@ -42,4 +42,28 @@ function jidloUkazatelFuč()
 {
     var jidlo = document.getElementById("addMeal");
     jidlo.style.display = 'none';   
+}
+
+function delButtonsSetup(json){
+    if(json.login == true){
+        jidloMazatelZde();
+    }else{
+        jidloMazatelFuč();
+    }
+}   
+
+function jidloMazatelZde(){
+    var buttons = document.getElementsByClassName("imgDeleteButton");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.display = "block";
+      }
+}
+function jidloMazatelFuč()
+{ 
+    console.log("provádím fuč");
+    var buttons = document.getElementsByClassName("imgDeleteButton");
+    for (var i = 0; i < buttons.length; i++) {
+        console.log(i, "je fuč");
+        buttons[i].style.display = "none";
+      }
 }
