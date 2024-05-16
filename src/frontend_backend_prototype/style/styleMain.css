@@ -81,15 +81,16 @@
     height: 4vh;
     border: none;
     border-radius: 15px;
-    background-color: var(--yellow);
+    /* background-color: var(--yellow); */
+    background-color: var(--background);
     box-shadow: 0 0 2px var(--font);
     font-size: 20px;
-    color: var(--header);
+    color: var(--font);
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
 }
 #clear:hover
 {
-    background-color: #ffd468;
+    background-color: var(--gray);
 }
 #outputArea
 {
@@ -117,16 +118,16 @@
     margin: 0 0 2.5vh 1vw;
     padding: 0 1vw 0 1vw;
     box-shadow: 0 0 2px var(--font);
-    /* background-color: var(--background); */
-    background-color: var(--yellow);
+    background-color: var(--background);
+    /* background-color: var(--yellow); */
     font-family: "Nunito", sans-serif;
     font-weight: 600;
-    color: var(--header);
+    color: var(--font);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 .filtr:hover
 {
-    background-color: #ffd468;
+    background-color: var(--gray);
 }
 hr
 {
