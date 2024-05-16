@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#addUserSubmit").click(function() {
-        var formData = new FormData($("#addUser")[0]);
+        var formData = new FormData($("#addUserForm")[0]);
         formData.append("type", "addUser");
         var password = formData.get("password");
         var passwordAgain = formData.get("passwordAgain");
@@ -67,8 +67,11 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
+                    /*
                     const error = document.getElementById("warning");
                     error.textContent = response; 
+                    */
+                   console.log(response);
                     load_users();
                 },
                 error: function(xhr, status, error) {

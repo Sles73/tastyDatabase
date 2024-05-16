@@ -14,13 +14,15 @@
             // výpis dat z každého řádku
             echo "<hr><ul id=\"whisper\">";
             while($row = $result->fetch_assoc()) {
-            echo "<li>" . $row["nazev"]. "</li>";
+            echo "<li class='searchResult' value='".$row["imgID"]."'>" . $row["nazev"]. "</li>";
             }
             echo "</ul>";
         } else {
             echo "";
         }
     }
+
+    
     if (isset($_POST['clear']))
     {
         $sql = "SELECT * FROM imgs WHERE nazev LIKE '%$search%'

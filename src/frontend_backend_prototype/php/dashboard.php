@@ -47,7 +47,6 @@ if (!isset($_SESSION['username'])) {
                             $hodnoceni = $_POST["slider"];
                             $course = $_POST["course"];
                             $addedBy = $_SESSION["userID"];
-
                             $sql = "INSERT INTO imgs (nazev,addedBy,filename,date,hodnoceni,chod)
                             VALUES ('$name', '$addedBy', '$fileName', '$date','$hodnoceni','$course')";
                             $conn->query($sql);

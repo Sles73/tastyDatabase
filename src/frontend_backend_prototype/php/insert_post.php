@@ -5,6 +5,7 @@ $conn = connect();
 
 
 if(isset($_POST["sort"]))
+    $sortText = false;
     switch($_POST["sort"]){
         case "hodnoceni":
             $sort = "hodnoceni DESC";
@@ -16,7 +17,10 @@ if(isset($_POST["sort"]))
             $sort = "nazev";
             break;
         case "chod":
-            $sort = "chod ";
+            $sort = "chod";
+            break;
+        case "textInput":
+            $sortText = true;
             break;
         default:
             $sort = "imgID";
@@ -24,10 +28,17 @@ if(isset($_POST["sort"]))
 
     }
 
-    $sql = "SELECT * FROM imgs
-    ORDER BY ".$sort." ;";                     
-    $result = $conn->query($sql);
+    if($sortText){
+        $searchPhrase = $_POST["searchPhrase"];
+        $sql = "SELECT * FROM imgs WHERE nazev LIKE '%$searchPhrase%'";
+    }
+    else{
+        $sql = "SELECT * FROM imgs
+        ORDER BY ".$sort." ;";                     
+        
+    }
 
+    $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
         echo '<div class="obed"> 
             <div id="rating">
@@ -39,7 +50,6 @@ if(isset($_POST["sort"]))
             <p>'.date("d.m. Y", strtotime($row["date"])).' &emsp; Chod: '.$row["chod"].'</p>
         </div>';
         }
-
 
     
 

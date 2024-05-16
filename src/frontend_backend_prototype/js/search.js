@@ -1,21 +1,63 @@
 $(document).ready(function(){
+    $("#searchBar").on("keyup", function() {
+            var search = $(this).val();
+            console.log(search); // Přidejte tento řádek
+            if (search != '')
+            {
+                $.ajax({
+                    url: 'php/search.php',
+                    method: 'POST',
+                    data: {searchBar:search},
+                    success: function(data) {
+                        $('#output').html(data);
+                    }
+                });
+            } 
+            else 
+            {
+                $('#output').html('');
+            }
+        });
+    });
+
+$(document).ready(function() {
+    $("#search").submit(function(event) {
+        var search = $("#searchBar").val();
+        event.preventDefault(); 
+
+        console.log("Form Data:");
+        console.log("userInput:", search);
+
+        cards_sort("textInput",search)
+
+    
+        
+    });
+});
+
+
+$(document).ready(function(){
     var curentSearch = sessionStorage.getItem('search');
 
     if (curentSearch) {
         cards_sort(curentSearch);
     } else {
         cards_sort("");
-    }   
+    }  
+    cards_sort(""); 
     
 });
 
-function cards_sort(sorting_method = sessionStorage.getItem('search')){
+function cards_sort(sorting_method = sessionStorage.getItem('search'),searchPhrase = null){
     sessionStorage.setItem('search', sorting_method);
+    console.log("sorting method ",sorting_method);  
+    console.log("search phrase ", )
     $.ajax({
         url: 'php/insert_post.php',
         type: 'POST',
-        data: {sort: sorting_method},
+        data: {sort: sorting_method, searchPhrase: searchPhrase},
         success: function(response){
+            //console.log(response);
             $('#result').html(response);
             checkLogin(delButtonsSetup);
         },
