@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -26,11 +25,30 @@
             <div id="websites">
                 <a onclick="loadMainContent('about.html')">O Projektu</a>
                 <a onclick="loadMainContent('main.html')">Vyhledání</a>
-                <!-- <a onclick="loadMainContent('login.html')">Přihlášení</a> -->
-                <a onclick="checkLogin(goToAdmin)">Přihlášení</a>
+                <!-- <a onclick="checkLogin(goToAdmin)">Přihlášení</a> -->
+                <a id="prihlaseniButton" onmouseover="prihlaseniList()">Přihlášení &ensp;+</a>
+            </div>
+            <div onmouseleave="prihlaseniListNe()" onmouseenter="prihlaseniList()" id="prihlaseniList">
+                <button onclick="addUser()">Přidání uživatele</button>
+                <button>Smazaní uživatele</button>
+                <button>Změna hesla</button>
+                <button>Odhlašení</button>
             </div>
         </div>
     </header>
+    <div class="formElement">
+        <form  method="post" class="formicka" id="addUser">
+            <h3>Přidání uživatele</h3>
+            <label for="username">Uživatelské jméno</label>
+            <input type="text" id="username" name="username" required placeholder="Napiš uživatelské jméno">
+            <label for="password">Heslo</label>
+            <input type="password" id="password" name="password" required placeholder="Napiš heslo">
+            <label for="password">Znovu Heslo</label>
+            <input type="password" id="passwordAgain" name="passwordAgain" required placeholder="Napiš stejné heslo">
+            <p id="warning"></p>
+            <button type="submit" onclick='event.preventDefault(event)' name="addUserSubmit" id="addUserSubmit">Submit</button>
+        </form>
+    </div>
     <div id="prihlaseni">
         <form id="prihlaseniForm" onsubmit="handleSubmit(event)" method="post" action="php/verification.php">
             <h2>Login</h2>

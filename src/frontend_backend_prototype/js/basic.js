@@ -8,5 +8,26 @@ window.onload = function() {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var strTime = hours + ampm + ' ' + date.getDate() + '.' + (date.getMonth()+1) + '.' + ' ' + date.getFullYear();
     document.getElementById('time').innerHTML = strTime;
+    var list = document.getElementById("prihlaseniList");
+    list.style.display = "none";
 };
+function prihlaseniList() {
+    console.log("banana");
+    var list = document.getElementById("prihlaseniList");
+    var button = document.getElementById("prihlaseniButton");
+    list.style.display = "block";
+    button.innerHTML = "Přihlášení &ensp;–";
+}
+function prihlaseniListNe()
+{
+    console.log("banana2");
+    var list = document.getElementById("prihlaseniList");
+    var button = document.getElementById("prihlaseniButton");
+    list.style.display = "none";
+    button.innerHTML = "Přihlášení &ensp;+";
+}
+function addUser()
+{
+    
+}
 
