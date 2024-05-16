@@ -110,6 +110,13 @@ if (!isset($_SESSION['username'])) {
                 echo "user deleted";
                 break;
 
+            case "deleteImg":
+                $imgId = $_POST["imgID"];
+                $sql = "DELETE FROM imgs WHERE imgID = $imgId;";
+                $conn->query($sql);
+                echo "php response:\nimg $imgId deleted";
+                break;
+
         }
         
     }
