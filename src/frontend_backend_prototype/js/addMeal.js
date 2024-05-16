@@ -44,26 +44,3 @@ function jidloUkazatelFuč()
     jidlo.style.display = 'none';   
 }
 
-function delButtonsSetup(json){
-    if(json.login == true){
-        jidloMazatelZde();
-    }else{
-        jidloMazatelFuč();
-    }
-}   
-
-function jidloMazatelZde(){
-    var buttons = document.getElementsByClassName("imgDeleteButton");
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.display = "block";
-      }
-}
-function jidloMazatelFuč()
-{ 
-    console.log("provádím fuč");
-    var buttons = document.getElementsByClassName("imgDeleteButton");
-    for (var i = 0; i < buttons.length; i++) {
-        console.log(i, "je fuč");
-        buttons[i].style.display = "none";
-      }
-}

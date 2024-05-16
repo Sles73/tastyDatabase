@@ -1,9 +1,16 @@
 $(document).ready(function(){
-    // When the document is ready, send an AJAX request to insert a post
-    cards_sort("");
+    var curentSearch = sessionStorage.getItem('search');
+
+    if (curentSearch) {
+        cards_sort(curentSearch);
+    } else {
+        cards_sort("");
+    }   
+    
 });
 
-function cards_sort(sorting_method){
+function cards_sort(sorting_method = sessionStorage.getItem('search')){
+    sessionStorage.setItem('search', sorting_method);
     $.ajax({
         url: 'php/insert_post.php',
         type: 'POST',
