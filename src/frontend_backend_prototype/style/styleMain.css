@@ -376,4 +376,5 @@ input[type="file"]
 
 .imgDeleteButton{
     display: none;
+    background-color: #ff3030;
 }
