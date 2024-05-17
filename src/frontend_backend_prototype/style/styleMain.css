@@ -394,7 +394,7 @@ input[type="file"]
     font-size: 1vw;
     font-weight: 800; */
     background-image: url("img/delete-svgrepo-com.svg");
-    background-size: 20px;
+    background-size: 1vw;
     background-repeat: no-repeat;
     background-position: center;
 }
