@@ -212,6 +212,7 @@ footer a
     color: var(--font);
     font-weight: 500;
     font-size: 16px;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #prihlaseniList button:hover
 {

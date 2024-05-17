@@ -234,10 +234,18 @@ hr
 .obed h2
 {
     margin: 0 0 1vh 1.5vw;
-    height: 4vh;
-    overflow-y: hidden;
+    width: 250px;
+    height: min-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all 0.3s ease-in-out;
 }
-.obed p{margin-left: 1.5vw;}
+.obed h2:hover
+{
+    text-wrap: pretty;
+}
+.obed p {margin-left: 1.5vw;}
 
 #jidloForm
 {

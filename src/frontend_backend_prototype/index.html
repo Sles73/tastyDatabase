@@ -27,9 +27,9 @@
                 <a onclick="loadMainContent('about.html')">O Projektu</a>
                 <a onclick="loadMainContent('main.html')">Vyhledání</a>
                 <!-- <a id="prihlaseniButton" onclick="checkLogin(goToAdmin)" onmouseover="prihlaseniList()">Přihlášení &ensp;+</a> -->
-                <a id="prihlaseniButton" onmouseover="prihlaseniList()">Přihlášení &ensp;+</a>
+                <a id="prihlaseniButton" onclick="checkLogin(goToAdmin)" onmouseover="prihlaseniList()">Přihlášení &ensp;+</a>
             </div>
-            <div onmouseleave="prihlaseniListNe()" onmouseenter="prihlaseniList()" id="prihlaseniList">
+            <div onmouseleave="prihlaseniListNe()" id="prihlaseniList">
                 <button onclick="show('addUser')">Přidání uživatele</button>
                 <button onclick="show('deleteUser')">Smazaní uživatele</button>
                 <button onclick="show('modifyUser')">Změna hesla</button>
@@ -79,7 +79,7 @@
     </div>
     <div id="prihlaseni">
         <form id="prihlaseniForm" onsubmit="handleSubmit(event)" method="post" action="php/verification.php">
-            <h2>Login</h2>
+            <h2>Přihlášení</h2>
             <label for="username">Uživatelské jméno</label>
             <input class="prihlaseniInput" type="text" id="username" name="username" required placeholder="Napiš své uživatelské jméno">
             <label for="password">Heslo</label>
