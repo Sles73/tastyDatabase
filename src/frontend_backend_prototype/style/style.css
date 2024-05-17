@@ -30,7 +30,10 @@
     {
         grid-template-columns: auto;
     }
-
+    header
+    {
+        height: 8vh;
+    }
 }
 html
 {
@@ -289,3 +292,26 @@ footer a
     background-color: var(--gray);
 }
 #addUser {display: none;}
+#deleteUser {display: none;}
+#modifyUser {display: none;}
+#deleteUser select
+{
+    width: 18vw;
+    height: 4vh;
+    margin: 1vh 0 2vh 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 18x;
+    color: var(--font);
+}
+#deleteUser select:focus
+{
+    outline: none;
+    border: none;
+}
+#smazat
+{
+    margin: 2vh auto 3vh auto;
+}

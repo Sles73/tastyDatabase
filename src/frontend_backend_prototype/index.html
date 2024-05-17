@@ -21,7 +21,7 @@
 <body>
     <header>
         <div id="menu">
-            <img id="logo" draggable="false" src="img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="Logo">
+            <img id="logo" draggable="false" src="style/img/OIG4.MCf6pK7MGadu-removebg-preview.png" alt="Logo">
             <h1>Tasty Database</h1>
             <div id="websites">
                 <a onclick="loadMainContent('about.html')">O Projektu</a>
@@ -29,9 +29,9 @@
                 <a id="prihlaseniButton" onclick="checkLogin(goToAdmin)" onmouseover="prihlaseniList()">Přihlášení &ensp;+</a>
             </div>
             <div onmouseleave="prihlaseniListNe()" onmouseenter="prihlaseniList()" id="prihlaseniList">
-                <button onclick="showAddUser()">Přidání uživatele</button>
-                <button>Smazaní uživatele</button>
-                <button>Změna hesla</button>
+                <button onclick="show('addUser')">Přidání uživatele</button>
+                <button onclick="show('deleteUser')">Smazaní uživatele</button>
+                <button onclick="show('modifyUser')">Změna hesla</button>
                 <button onclick='post("logOut")'>Odhlašení</button>
             </div>
         </div>
@@ -46,7 +46,34 @@
             <label for="password">Znovu Heslo</label>
             <input type="password" id="passwordAgain" name="passwordAgain" required placeholder="Napiš stejné heslo">
             <p id="warning"></p>
-            <button type="submit" onclick='event.preventDefault(event)' name="addUserSubmit" id="addUserSubmit">Submit</button>
+            <button type="submit" onclick='event.preventDefault(event)' name="addUserSubmit" id="addUserSubmit">Přidat</button>
+        </form>
+    </div>
+    <div class="user" id="deleteUser">
+        <form method="post" action="modifyUser.php" class="userForm">
+            <h3>Smazání Uživatele</h3>
+            <label for="username">Uživatelské jméno</label>
+            <select type="text" id="usernames" name="username" required>
+            </select>
+            <button type="submit" id="smazat" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">Smazat</button>
+        </form>
+    </div>
+    <div class="user" id="modifyUser">
+        <form method="post" action="modifyUser.php" class="userForm">
+            <h3>Úprava uživatele</h3>
+            <label for="username">Uživatelské jméno</label>
+            <select type="text" id="usernames" name="username" required>
+            </select>
+            <label for="password">Nové heslo</label>
+            <input type="password" id="password" name="password" placeholder="Napiš nové heslo">
+            <label for="password">Nové heslo znovu</label>
+            <input type="password" id="passwordAgain" name="passwordAgain" placeholder="Napiš nové heslo znovu">
+            <p id="text"></p>
+            <div>
+                <button type="submit" name="changePassword">changePassword</button>
+                <button type="submit" id="deleteUser" onclick='event.preventDefault(event)' style="background-color: #ff3030;" name="deleteUser">deleteUser</button>
+            </div>
+            
         </form>
     </div>
     <div id="prihlaseni">

@@ -10,6 +10,8 @@ window.onload = function() {
     document.getElementById('time').innerHTML = strTime;
     var list = document.getElementById("prihlaseniList");
     list.style.display = "none";
+    var modiy = document.getElementById("modifyUser");
+    modiy.style.display = "none";
 };
 function prihlaseniList() {
     var list = document.getElementById("prihlaseniList");
@@ -24,24 +26,24 @@ function prihlaseniListNe()
     list.style.display = "none";
     button.innerHTML = "Přihlášení &ensp;+";
 }
-
-function showAddUser(){
-    console.log("banana");
-    var objeveni = document.getElementById("addUser");
+var id;
+function show(idForm)
+{
+    var objeveni = document.getElementById(idForm);
+    id = objeveni;
     var overlay = document.getElementById("overlay");
     objeveni.style.display = "block";
     overlay.style.display = "block";
     event.stopPropagation();
 }
-function hideAddUser(e)
+function hide(e)
 {
-    console.log("banana2");
-    var objeveni = document.getElementById("addUser");
+    var objeveni = id;
     var overlay = document.getElementById("overlay");
-    if (!objeveni.contains(e.target)) 
+    if (objeveni && !objeveni.contains(e.target)) 
     {
         objeveni.style.display = 'none';
         overlay.style.display = "none";
     }
 }
-document.addEventListener('click', hideAddUser);
+document.addEventListener('click', hide);

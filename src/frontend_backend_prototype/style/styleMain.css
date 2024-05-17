@@ -77,14 +77,16 @@
 ::placeholder {color: var(--font);}
 #clear
 {
-    width: 4vh;
-    height: 4vh;
+    width: 2vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
     border: none;
     border-radius: 15px;
     /* background-color: var(--yellow); */
     background-color: var(--background);
     box-shadow: 0 0 2px var(--font);
-    font-size: 20px;
+    font-size: 0.9vw;
+    font-weight: 1000;
     color: var(--font);
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
 }
@@ -160,6 +162,8 @@ hr
     width: 80vw;
     margin: 5vh auto 20vh auto;
     height: fit-content;
+    display: flex;
+    justify-content: center;
 }
 #result
 {
@@ -171,6 +175,7 @@ hr
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     /* column-gap: 2.5vw;
     row-gap: 5vh; */
     column-gap: 35px;
@@ -376,5 +381,53 @@ input[type="file"]
 
 .imgDeleteButton{
     display: none;
-    background-color: #ff3030;
+    background-color: #ff4646;
+    position: absolute;
+    left: 1vw;
+    top: 2vh;
+    width: 2vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: 10px;
+    /* box-shadow: 0 0 3px var(--border);
+    font-size: 1vw;
+    font-weight: 800; */
+    background-image: url("img/delete-svgrepo-com.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.imgDeleteButton:hover
+{
+    background-color: #ff0000;
+    animation: tres infinite 0.5s;
+}
+@keyframes tres
+{
+    0%
+    {
+        transform: translate(1px, 1px);
+        transform: rotate(0deg);
+    }
+    25%
+    {
+        transform: translate(1px, 1px);
+        transform: rotate(-15deg);
+    }
+    50%
+    {
+        transform: translate(0px, 0px);
+        transform: rotate(0deg);
+    }
+    75%
+    {
+        transform: translate(-1px, -1px);
+        transform: rotate(15deg);
+    }
+    100%
+    {
+        transform: translate(1px, 1px);
+        transform: rotate(0deg);
+    }
 }
