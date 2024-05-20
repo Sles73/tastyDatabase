@@ -13,18 +13,46 @@ window.onload = function() {
     var modiy = document.getElementById("modifyUser");
     modiy.style.display = "none";
 };
+function setLogin(json){
+    console.log("triggered");
+    if(json.login == true){
+        prihlaseniListEnable();
+    }else{
+        prihlaseniListNe();
+        prihlaseniListDisable(); 
+    }
+}
 function prihlaseniList() {
     var list = document.getElementById("prihlaseniList");
-    var button = document.getElementById("prihlaseniButton");
+    var button = document.getElementById("prihlaseniButtonRozbalovac");
     list.style.display = "block";
-    button.innerHTML = "Přihlášení &ensp;–";
+    button.innerHTML = "–";
 }
 function prihlaseniListNe()
 {
     var list = document.getElementById("prihlaseniList");
-    var button = document.getElementById("prihlaseniButton");
+    var button = document.getElementById("prihlaseniButtonRozbalovac");
     list.style.display = "none";
-    button.innerHTML = "Přihlášení &ensp;+";
+    button.innerHTML = "+";
+}
+function prihlaseniListEnable(){
+    var rozbalovac = document.getElementById("prihlaseniButtonRozbalovac");
+    rozbalovac.innerHTML = "+";
+    var list = document.getElementById("prihlaseniList");
+    var button = document.getElementById("prihlaseniButton");
+    button.addEventListener("mouseover", prihlaseniList);
+    list.addEventListener("mouseleave", prihlaseniListNe);
+    console.log("Events enabled");
+}
+
+function prihlaseniListDisable(){
+    var list = document.getElementById("prihlaseniList");
+    var button = document.getElementById("prihlaseniButton");
+    button.removeEventListener("mouseover", prihlaseniList);
+    list.removeEventListener("mouseleave", prihlaseniListNe);
+    console.log("Events enabled");
+    var rozbalovac = document.getElementById("prihlaseniButtonRozbalovac");
+    rozbalovac.innerHTML = "";
 }
 var id;
 function show(idForm)
