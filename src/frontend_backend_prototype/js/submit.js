@@ -21,7 +21,7 @@ function goToAdmin(json){
     // Access and use the JSON data
     var chacked = json.login;
     if(json.login == true){
-        loadMainContent("adminPage.html");
+        loadMainContent("main.html");
         var event = new Event('click');
         aJeFuč(event);
         return true;

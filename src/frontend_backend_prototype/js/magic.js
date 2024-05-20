@@ -27,11 +27,6 @@ function loadMainContent(where) {
             console.error('AJAX Error:', status, error);
         }
     });
-    
+
     checkLogin(setLogin);
-    switch(where){
-        case "adminPage.html":
-            setupAdminPage();
-            break;
-    }
 }
