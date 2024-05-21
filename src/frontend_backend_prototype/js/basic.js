@@ -68,7 +68,7 @@ function show_form(idForm)
     overlay.style.display = "block";
     event.stopPropagation();
 }
-function hide(e)
+function hide_form(e)
 {
     var objeveni = id;
     var overlay = document.getElementById("overlay");
@@ -78,4 +78,4 @@ function hide(e)
         overlay.style.display = "none";
     }
 }
-document.addEventListener('click', hide);
+document.addEventListener('click', hide_form);

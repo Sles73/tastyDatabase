@@ -20,7 +20,7 @@ function checkLogin(outputFunction){
 function goToAdmin(json,login = false){
     if(json.login == true){
         loadMainContent("main.html");
-        hide(new Event('click'));
+        hide_form(new Event('click'));
     }else{
         if(login){
             const error = document.getElementById("prihlaseniWarning");
