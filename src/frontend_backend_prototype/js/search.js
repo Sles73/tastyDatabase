@@ -20,6 +20,17 @@ function performSearch(search) {
         data: { searchBar: search },
         success: function(data) {
             $('#output').html(data);
+
+            const clickableElements = document.querySelectorAll('.searchResult');
+            console.log(clickableElements);
+            clickableElements.forEach(element => {
+                element.addEventListener('click', event => {
+                    console.log(event.target.innerHTML);
+                    document.getElementById("searchBar").value = event.target.innerHTML;
+                    handleKeyUp();
+
+                });
+            });
         }
     });
 }
@@ -37,7 +48,7 @@ $(document).ready(function() {
     $("#clear").click(function() {
         cards_sort("");
         $("#searchBar").val('');
-
+        handleKeyUp();
     });
 });
 
