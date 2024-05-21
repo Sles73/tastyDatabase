@@ -409,7 +409,7 @@ input[type="file"]
 .imgDeleteButton:hover
 {
     background-color: #ff0000;
-    animation: tres infinite 0.5s;
+    animation: tres infinite 400ms;
 }
 @keyframes tres
 {
