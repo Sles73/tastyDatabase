@@ -10,29 +10,41 @@
     --yellow: #ffcf55;
     --fontLight: #011f2aa6;
 }
-@media only screen and (max-width: 1000px) 
+@media only screen and (max-width: 746px) 
 {
     #menu h1
     {
         display: none;
+    }
+    #websites
+    {
+        top: 2vh;
     }
     #websites a
     {
         margin-left: 1vw;
         font-size: 2.5vh;
     }
-    #logo
-    {
-        margin-left: 1vw;
-        width: 10vh;
-    }
-    #result
-    {
-        grid-template-columns: auto;
-    }
     header
     {
         height: 8vh;
+    }
+    #logo
+    {
+        margin-left: 1vw;
+        width: 8vh;
+    }
+    #search
+    {
+        width: 70vw;
+    }
+    #searchArea
+    {
+        width: 70vw;
+    }
+    #outputArea
+    {
+        width: 70vw;
     }
 }
 html
@@ -69,7 +81,6 @@ header
 }
 #menu
 {
-    width: 100vw;
     display: flex;
 }
 #menu h1

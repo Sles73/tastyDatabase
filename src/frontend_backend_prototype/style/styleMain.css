@@ -1,3 +1,90 @@
+@media only all and (max-width: 1000px) 
+{
+    #menu h1
+    {
+        display: none;
+    }
+}
+@media only all and (max-width: 746px) 
+{
+    #websites
+    {
+        top: 2.5vh;
+    }
+    #prihlaseniButtonRozbalovac
+    {
+        top: 2.5vh;
+    }
+    #websites a
+    {
+        margin-left: 1vw;
+        font-size: 2.5vh;
+    }
+    header
+    {
+        height: 8vh;
+    }
+    #logo
+    {
+        margin-left: 1vw;
+        width: 8vh;
+    }
+    #search
+    {
+        width: 50vw !important;
+    }
+    #searchArea
+    {
+        width: inherit !important;
+    }
+    #outputArea
+    {
+        width: inherit !important;
+    }
+    #imageForm
+    {
+        display: block !important;
+    }
+    #jidloForm
+    {
+        width: 85vw !important;
+        left: 7.5vw !important;
+        top: 5vh !important;
+    }
+    #jidloForm div
+    {
+        width: 80vw !important;
+    }
+    #jidloForm div > *
+    {
+        width: 80vw !important;
+    }
+}
+@media only all and (max-width: 400px) 
+{
+    #search
+    {
+        width: 85vw !important;
+    }
+    #imageForm
+    {
+        display: block !important;
+    }
+    #jidloForm
+    {
+        width: 85vw !important;
+        left: 7.5vw !important;
+        top: 5vh !important;
+    }
+    #jidloForm div
+    {
+        width: 80vw !important;
+    }
+    #jidloForm div > *
+    {
+        width: 80vw !important;
+    }
+}
 :root
 {
     --background: #e0e0e0;
@@ -10,31 +97,9 @@
     --yellow: #ffcf55;
     --fontLight: #011f2aa6;
 }
-@media only screen and (max-width: 1000px) 
-{
-    #menu h1
-    {
-        display: none;
-    }
-    #websites a
-    {
-        margin-left: 1vw;
-        font-size: 2.5vh;
-    }
-    #logo
-    {
-        margin-left: 1vw;
-        width: 10vh;
-    }
-    #result
-    {
-        grid-template-columns: auto;
-    }
-
-}
 #first
 {
-    width: 70vw;
+    width: 80vw;
     height: 45vh;
     margin: 5vh auto 3vh auto;
     display: flex;
@@ -55,10 +120,16 @@
     background-color: var(--header);
     box-shadow: 0 0 2px var(--font);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
-#searchArea svg {fill: var(--font);}
+#searchArea svg
+{
+    width: 25px;
+    height: 25px;
+    fill: var(--font);
+    margin-left: 1vw;
+}
 #searchBar
 {
     display: block;
@@ -77,15 +148,15 @@
 ::placeholder {color: var(--font);}
 #clear
 {
-    width: 2vw;
-    height: auto;
-    aspect-ratio: 1 / 1;
+    width: 30px;
+    height: 30px;
+    margin-right: 1vw;
     border: none;
     border-radius: 15px;
     /* background-color: var(--yellow); */
     background-color: var(--background);
     box-shadow: 0 0 2px var(--font);
-    font-size: 0.9vw;
+    font-size: 16px;
     font-weight: 1000;
     color: var(--font);
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
@@ -374,8 +445,8 @@ input[type="file"]
     position: fixed;
     bottom: 3vh;
     right: 2vw;
-    width: 3.5vw;
     border: none;
+    width: 50px;
     height: auto;
     aspect-ratio: 1 / 1;
     border-radius: 30px;
