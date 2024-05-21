@@ -116,6 +116,27 @@ if (!isset($_SESSION['username'])) {
                 echo "php response:\nimg $imgId deleted";
                 break;
 
+            case "changePassword":
+                if(!empty($_POST["hashedPassword"])){
+                    $userId = $_SESSION["userID"];
+                        
+                    $hashedPassword = $_POST["hashedPassword"];
+            
+                    $PHPhashedPassword = password_hash($hashedPassword, PASSWORD_DEFAULT);
+            
+                    $sql = "UPDATE users 
+                    SET password = $hashedPassword
+                    WHERE userID = $userId";
+            
+                    $conn->query($sql);
+                    
+                    echo "password changed";
+                }else{
+                    echo "informations not given";
+                }
+                break;
+
+                
         }
         
     }

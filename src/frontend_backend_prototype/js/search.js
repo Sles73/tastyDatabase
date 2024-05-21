@@ -1,24 +1,28 @@
-$(document).ready(function(){
-    $("#searchBar").on("keyup", function() {
-            var search = $(this).val();
-            console.log(search); // Přidejte tento řádek
-            if (search != '')
-            {
-                $.ajax({
-                    url: 'php/search.php',
-                    method: 'POST',
-                    data: {searchBar:search},
-                    success: function(data) {
-                        $('#output').html(data);
-                    }
-                });
-            } 
-            else 
-            {
-                $('#output').html('');
-            }
-        });
+$(document).ready(function() {
+    $("#searchBar").on("keyup", handleKeyUp);
+});
+
+function handleKeyUp() {
+    var search = $("#searchBar").val();
+    cards_sort("textInput", search);
+    console.log(search); // Přidejte tento řádek
+    if (search != '') {
+        performSearch(search);
+    } else {
+        $('#output').html('');
+    }
+}
+
+function performSearch(search) {
+    $.ajax({
+        url: 'php/search.php',
+        method: 'POST',
+        data: { searchBar: search },
+        success: function(data) {
+            $('#output').html(data);
+        }
     });
+}
 
 $(document).ready(function() {
     $("#search").submit(function(event) {

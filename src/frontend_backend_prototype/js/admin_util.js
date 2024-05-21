@@ -38,11 +38,14 @@ $(document).ready(function() {
             processData: false,
             success: function(response) {
                 console.log(response);
+                const error = document.getElementById("imgOutputMessage");
+                error.textContent = response;
+                cards_sort();
             },
             error: function(xhr, status, error) {
                 console.error('Request failed:', error);
             }
-        });
+        }); 
     });
 });
 
@@ -67,10 +70,9 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    /*
                     const error = document.getElementById("warning");
                     error.textContent = response; 
-                    */
+                    
                    console.log(response);
                     load_users();
                 },
@@ -98,7 +100,7 @@ function load_users(){
 }
 
 $(document).ready(function() {
-    $("#deleteUser").click(function() {
+    $("#deleteButton").click(function() {
         var username = document.getElementById("usernames").value;
             $.ajax({
                 url: "php/dashboard.php",
@@ -115,6 +117,46 @@ $(document).ready(function() {
                 }
             });
         
+    });
+});
+
+$(document).ready(function() {
+    $("#changePassword").click(function() {
+        var formData = new FormData($("#userChangeForm")[0]);
+        formData.append("type", "passwordChange");
+        var password = formData.get("password");
+        var passwordAgain = formData.get("passwordAgain");
+        console.log(formData);
+        console.log(password," ",passwordAgain);
+        formData.delete("passwordChange");
+        formData.delete("passwordChangeAgain");
+        formData.append("hashedPassword", hashPassword(password));
+        if(password != passwordAgain){
+            console.log("nuh uh");
+            const error = document.getElementById("modifyMessage");
+            error.textContent = "Passwords are not the same!"; 
+        }else{
+            console.log("yuh uh");
+            /*
+            $.ajax({
+                url: "php/dashboard.php",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    const error = document.getElementById("warning");
+                    error.textContent = response; 
+                    
+                   console.log(response);
+                    load_users();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Request failed:', error);
+                }
+            });
+            */
+        }
     });
 });
 
