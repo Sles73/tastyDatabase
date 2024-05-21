@@ -59,7 +59,7 @@ function prihlaseniListDisable(){
     rozbalovac.innerHTML = "";
 }
 var id;
-function show(idForm)
+function show_form(idForm)
 {
     var objeveni = document.getElementById(idForm);
     id = objeveni;

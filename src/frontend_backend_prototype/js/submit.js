@@ -26,7 +26,7 @@ function goToAdmin(json,login = false){
             const error = document.getElementById("prihlaseniWarning");
             //error.textContent = "Chybné jméno nebo heslo."; 
         }
-        show('prihlaseni');
+        show_form('prihlaseni');
     }
 }
 
