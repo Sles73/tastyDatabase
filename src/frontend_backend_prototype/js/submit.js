@@ -17,17 +17,16 @@ function checkLogin(outputFunction){
     });
 }
 
-function goToAdmin(json){
-    // Access and use the JSON data
-    var chacked = json.login;
+function goToAdmin(json,login = false){
     if(json.login == true){
         loadMainContent("main.html");
-        var event = new Event('click');
-        aJeFuč(event);
-        return true;
+        hide(new Event('click'));
     }else{
-        jeToTam();
-        return false;
+        if(login){
+            const error = document.getElementById("prihlaseniWarning");
+            //error.textContent = "Chybné jméno nebo heslo."; 
+        }
+        show('prihlaseni');
     }
 }
 
@@ -46,7 +45,7 @@ function handleSubmit(event) {
         type: 'POST',
         data: {username: username, hashedPassword:  hashedPassword},
         success: function(response){
-            goToAdmin(response);
+            goToAdmin(response,true);
         },
         error: function(xhr, status, error){
             console.error('AJAX Error:', status, error);

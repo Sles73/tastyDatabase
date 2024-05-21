@@ -17,9 +17,13 @@ function setLogin(json){
     console.log("triggered");
     if(json.login == true){
         prihlaseniListEnable();
+        let str = json.username+ " &ensp;";
+        str = str.charAt(0).toUpperCase() + str.slice(1);
+        document.getElementById("prihlaseniButton").innerHTML = str;
     }else{
         prihlaseniListNe();
         prihlaseniListDisable(); 
+        document.getElementById("prihlaseniButton").innerHTML = "Prihlaseni &ensp;";
     }
 }
 function prihlaseniList() {

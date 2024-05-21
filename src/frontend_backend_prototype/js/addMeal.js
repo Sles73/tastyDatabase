@@ -1,3 +1,4 @@
+/*
 var jidloJe = false;
 
 function jidloZde(){
@@ -23,10 +24,11 @@ function jidloFuč(e)
 }
 
 document.addEventListener('click', jidloFuč);
-
+*/
 checkLogin(addMealSetup);
 
 function addMealSetup(json){
+    console.log("meal setup: ", json);
         if(json.login == true){
             jidloUkazatelZde();
         }else{

@@ -21,6 +21,7 @@ if(!empty($_POST['username']) && !empty($_POST['hashedPassword'])){
                 // Valid credentials, start session and redirect
             $_SESSION['username'] = $username;
             $_SESSION['userID'] = $user["userID"];
+            $data["username"] = $username;
             $data = array('login' => true); // Redirect to dashboard or any other secure page
         } else {
             // Invalid credentials, redirect back to login page with an error message
@@ -40,6 +41,8 @@ if(isset($_POST["checkLogin"])){
         $data = array('login' => false);
     }else{
         $data = array('login' => true);
+        $username = $_SESSION['username'];
+        $data["username"] = $username;
     }
     // Convert data to JSON format
     $dataJson = json_encode($data);
