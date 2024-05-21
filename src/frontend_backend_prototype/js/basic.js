@@ -14,7 +14,6 @@ window.onload = function() {
     modiy.style.display = "none";
 };
 function setLogin(json){
-    console.log("triggered");
     if(json.login == true){
         prihlaseniListEnable();
         let str = json.username+ " &ensp;";
@@ -46,7 +45,6 @@ function prihlaseniListEnable(){
     var button = document.getElementById("prihlaseniButton");
     button.addEventListener("mouseover", prihlaseniList);
     list.addEventListener("mouseleave", prihlaseniListNe);
-    console.log("Events enabled");
 }
 
 function prihlaseniListDisable(){
@@ -54,7 +52,6 @@ function prihlaseniListDisable(){
     var button = document.getElementById("prihlaseniButton");
     button.removeEventListener("mouseover", prihlaseniList);
     list.removeEventListener("mouseleave", prihlaseniListNe);
-    console.log("Events enabled");
     var rozbalovac = document.getElementById("prihlaseniButtonRozbalovac");
     rozbalovac.innerHTML = "";
 }

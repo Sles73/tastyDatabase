@@ -2,6 +2,7 @@
 include("connect.php");
 $conn = connect();
 session_start();
+header('Content-Type: application/json');
 ?>
 
 
@@ -32,7 +33,6 @@ if(!empty($_POST['username']) && !empty($_POST['hashedPassword'])){
         $data = array('login' => false);
     }
     $dataJson = json_encode($data);
-    header('Content-Type: application/json');
     echo $dataJson;
 }
 
@@ -48,7 +48,6 @@ if(isset($_POST["checkLogin"])){
     $dataJson = json_encode($data);
 
     // Send JSON response back to the client
-    header('Content-Type: application/json');
     echo $dataJson;
 }
 

@@ -38,7 +38,6 @@ function identifyClickedButton(clickedButton) {
         type: "POST",
         data: {type:"deleteImg", imgID: buttonValue},
         success: function(response) {
-            console.log(response);
             cards_sort();
 
         },
