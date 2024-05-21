@@ -1,3 +1,85 @@
+@media only all and (max-width: 1000px) 
+{
+    body, html > *
+    {
+        max-width: 1000px;
+        overflow-x: hidden;
+    }
+    #menu h1
+    {
+        display: none;
+    }
+}
+@media only all and (max-width: 746px) 
+{
+    body, html > *
+    {
+        max-width: 746px;
+        overflow-x: hidden;
+    }
+    #websites
+    {
+        top: 2.5vh;
+    }
+    #prihlaseniButtonRozbalovac
+    {
+        top: 2.5vh;
+        left: 93vw;
+    }
+    #prihlaseniList
+    {
+        right: 2vw;
+        box-shadow: 0 0 4px var(--font);
+    }
+    #websites a
+    {
+        margin-left: 1vw;
+        font-size: 2.5vh;
+    }
+    header
+    {
+        height: 8vh;
+    }
+    #logo
+    {
+        margin-left: 1vw;
+        width: 8vh;
+    }
+    #second {display: block !important;}
+    .info
+    {
+        width: 300px !important;
+        margin: 2vh 0;
+        padding: 3vw !important;
+    }
+    #first img {width: 300px !important;}
+}
+@media only all and (max-width: 400px) 
+{
+    body, html > *
+    {
+        max-width: 400px;
+        overflow-x: hidden;
+    }
+    #prihlaseni
+    {
+        width: 70vw !important;
+        left: 15vw !important;
+    }
+    #prihlaseniForm
+    {
+        width: 65vw !important;
+        margin: 3vh auto 0 auto;
+    }
+    #prihlaseniForm > *
+    {
+        width: inherit !important;
+    }
+    #prihlaseniForm h2
+    {
+        text-align: center;
+    }
+}
 :root
 {
     --background: #e0e0e0;
@@ -19,15 +101,16 @@
 #second
 {
     width: 80vw;
-    height: 40vh;
+    height: fit-content;
+    min-height: 40vh;
     margin: 5vh auto 3vh auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     text-align: justify;
 }
 .info
 {
-    width: 25vw;
+    width: 22vw;
     height: fit-content;
     border-radius: 20px;
     background-color: var(--header);
@@ -37,7 +120,6 @@
 }
 .info p {margin: 0;}
 
-#vSandwitchi {margin: 0 2vw;}
 h2
 {
     font-size: 18px;

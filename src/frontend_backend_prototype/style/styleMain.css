@@ -1,5 +1,10 @@
 @media only all and (max-width: 1000px) 
 {
+    body, html > *
+    {
+        max-width: 1000px;
+        overflow-x: hidden;
+    }
     #menu h1
     {
         display: none;
@@ -7,6 +12,11 @@
 }
 @media only all and (max-width: 746px) 
 {
+    body, html > *
+    {
+        max-width: 746px;
+        overflow-x: hidden;
+    }
     #websites
     {
         top: 2.5vh;
@@ -14,6 +24,12 @@
     #prihlaseniButtonRozbalovac
     {
         top: 2.5vh;
+        left: 93vw;
+    }
+    #prihlaseniList
+    {
+        right: 2vw;
+        box-shadow: 0 0 4px var(--font);
     }
     #websites a
     {
@@ -37,52 +53,81 @@
     {
         width: inherit !important;
     }
+    #searchBar {width: 43vw !important;}
     #outputArea
     {
         width: inherit !important;
     }
     #imageForm
     {
+        width: 77vw !important;
         display: block !important;
+        padding: 3vw !important;
+    }
+    #imageForm h3
+    {
+        text-align: center;
     }
     #jidloForm
     {
         width: 85vw !important;
         left: 7.5vw !important;
-        top: 5vh !important;
-    }
-    #jidloForm div
-    {
-        width: 80vw !important;
+        top: 1vh !important;
     }
     #jidloForm div > *
     {
-        width: 80vw !important;
+        width: 74vw !important;
     }
 }
 @media only all and (max-width: 400px) 
 {
+    body, html > *
+    {
+        max-width: 400px;
+        overflow-x: hidden;
+    }
+    #prihlaseni
+    {
+        width: 70vw !important;
+        left: 15vw !important;
+    }
+    #prihlaseniForm
+    {
+        width: 65vw !important;
+        margin: 3vh auto 0 auto;
+    }
+    #prihlaseniForm > *
+    {
+        width: inherit !important;
+    }
+    #prihlaseniForm h2
+    {
+        text-align: center;
+    }
     #search
     {
-        width: 85vw !important;
+        width: 300px !important;
     }
     #imageForm
     {
+        width: 77vw !important;
         display: block !important;
+        padding: 3vw !important;
+    }
+    #imageForm h3
+    {
+        font-size: 20px;
+        text-align: center;
     }
     #jidloForm
     {
         width: 85vw !important;
         left: 7.5vw !important;
-        top: 5vh !important;
-    }
-    #jidloForm div
-    {
-        width: 80vw !important;
+        top: 1vh !important;
     }
     #jidloForm div > *
     {
-        width: 80vw !important;
+        width: 74vw !important;
     }
 }
 :root
@@ -153,12 +198,13 @@
     margin-right: 1vw;
     border: none;
     border-radius: 15px;
-    /* background-color: var(--yellow); */
     background-color: var(--background);
     box-shadow: 0 0 2px var(--font);
-    font-size: 16px;
-    font-weight: 1000;
-    color: var(--font);
+    background-image: url("img/close-cross-svgrepo-com.svg");
+    fill: var(--font);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 8px;
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
 }
 #clear:hover
@@ -180,15 +226,16 @@
 {
     font-weight: 600;
     font-size: 16px;
-    margin: 1.5vh 0 2vh 1vw;
+    margin: 1.5vh 0 2vh 10px;
 }
 .filtr
 {
     width: fit-content;
     height: 4.5vh;
+    min-width: 45px;
     border-radius: 30px;
     border: none;
-    margin: 0 0 2.5vh 1vw;
+    margin: 0 0 2.5vh 10px;
     padding: 0 1vw 0 1vw;
     box-shadow: 0 0 2px var(--font);
     background-color: var(--background);
@@ -305,7 +352,7 @@ hr
 }
 .obed h2
 {
-    margin: 0 0 1vh 1.5vw;
+    margin: 0 0 1vh 25px;
     width: 250px;
     height: min-content;
     overflow: hidden;
@@ -317,7 +364,7 @@ hr
 {
     text-wrap: pretty;
 }
-.obed p {margin-left: 1.5vw;}
+.obed p {margin-left: 25px;}
 
 #jidloForm
 {
@@ -452,10 +499,11 @@ input[type="file"]
     border-radius: 30px;
     background-color: var(--yellow);
     box-shadow: 0 0 3px var(--border);
-    font-size: 30px;
-    font-family: "Nunito", sans-serif;
-    padding-bottom: 3px;
-    color: var(--header);
+    background-image: url("img/plus-svgrepo-com.svg");
+    fill: var(--header);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #addMeal:hover {background-color: #ffd468;}
 
@@ -463,8 +511,8 @@ input[type="file"]
     display: none;
     background-color: #ff4646;
     position: absolute;
-    left: 1vw;
-    top: 2vh;
+    left: 10px;
+    top: 10px;
     width: 35px;
     height: auto;
     aspect-ratio: 1 / 1;

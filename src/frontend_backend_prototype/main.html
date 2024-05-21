@@ -6,7 +6,7 @@
                     <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>                
                 <input name="searchBar" id="searchBar" type="text" placeholder="Najít v Tastybase...">
-                <input id="clear" name="clear" type="button" value="&#10005;">
+                <input id="clear" name="clear" type="button">
             </div>
             <div id="outputArea">
                 <p>Seřadit dle:</p>
@@ -28,9 +28,7 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Napiš název jídla">
                 <label for="date">Select Date:</label>
-                <!-- <button id="prevDayButton" type="button" >&larr;</button> -->
                 <input type="date" id="date" name="date">
-                <!-- <button id="nextDayButton" type="button" >&rarr;</button> -->
                 <label for="course">Select the course</label>
                 <select id="course" name="course">
                     <option value="1">Course 1</option>
@@ -49,7 +47,7 @@
             </div>
         </form>
     </div>
-    <button onclick="show_form('jidloForm')" id="addMeal">+</button>
+    <button onclick="show_form('jidloForm')" id="addMeal"></button>
     <script src="js/search.js"></script>
     <script src="js/addMeal.js"></script>
     <script src="js/admin_util.js"></script>
