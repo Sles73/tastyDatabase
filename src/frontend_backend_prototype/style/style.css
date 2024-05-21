@@ -80,9 +80,9 @@ header
 }
 #websites
 {
-    
+    white-space: nowrap;
     position: absolute;
-    left: 72vw;
+    right: 4vw;
     top: 4vh;
 }
 #websites a
@@ -95,6 +95,18 @@ header
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #websites a:hover {color: var(--fontHover);}
+#prihlaseniButtonRozbalovac
+{
+    width: 20px;
+    position: absolute;
+    left: 96vw;
+    top: 4vh;
+    color: var(--font);
+    font-weight: 500;
+    font-size: 2.5vh;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+}
+#prihlaseniButtonRozbalovac:hover {color: var(--fontHover);}
 footer
 {   
     width: 100vw;

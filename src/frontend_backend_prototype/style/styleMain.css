@@ -194,7 +194,8 @@ hr
 }
 #rating
 {
-    width: 9.5vw;
+    /* width: 9.5vw; */
+    width: 120px;
     height: auto;
     aspect-ratio: 1 / 1;
     border-radius: 20px;
@@ -393,7 +394,7 @@ input[type="file"]
     position: absolute;
     left: 1vw;
     top: 2vh;
-    width: 2vw;
+    width: 35px;
     height: auto;
     aspect-ratio: 1 / 1;
     border: none;
@@ -402,7 +403,7 @@ input[type="file"]
     font-size: 1vw;
     font-weight: 800; */
     background-image: url("img/delete-svgrepo-com.svg");
-    background-size: 1vw;
+    background-size: 20px;
     background-repeat: no-repeat;
     background-position: center;
 }
