@@ -111,6 +111,11 @@ if (!isset($_SESSION['username'])) {
 
             case "deleteImg":
                 $imgId = $_POST["imgID"];
+                $sql = "SELECT fileName FROM imgs WHERE imgID = $imgId";
+                $result = $conn->query($sql)->fetch_assoc()["fileName"];
+                $result = "../uploads/$result";
+                echo $result;
+                unlink($result);
                 $sql = "DELETE FROM imgs WHERE imgID = $imgId;";
                 $conn->query($sql);
                 echo "php response:\nimg $imgId deleted";
@@ -127,7 +132,7 @@ if (!isset($_SESSION['username'])) {
                     // Prepare the SQL statement
                     $stmt = $conn->prepare("UPDATE users SET password = ? WHERE userID = ?");
                     
-                    // Bind parameters
+                   // Bind parameters
                     $stmt->bind_param("si", $PHPhashedPassword, $userId);
 
                     // Execute the query
