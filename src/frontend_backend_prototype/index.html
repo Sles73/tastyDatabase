@@ -63,12 +63,12 @@
         <form class="userForm" id="userChangeForm">
             <h3>Úprava uživatele</h3>
             <label for="password">Nové heslo</label>
-            <input type="password" id="passwordChange" name="password" placeholder="Napiš nové heslo">
+            <input type="password" id="passwordChange" name="passwordChange" placeholder="Napiš nové heslo">
             <label for="password">Nové heslo znovu</label>
-            <input type="password" id="passwordChangeAgain" name="passwordAgain" placeholder="Napiš nové heslo znovu">
+            <input type="password" id="passwordChangeAgain" name="passwordChangeAgain" placeholder="Napiš nové heslo znovu">
             <p id="text"></p>
             <div>
-                <button type="button" name="changePassword" id="changePassword">changePassword</button>
+                <button type="submit" onclick="event.preventDefault()" name="changePassword" id="changePassword">changePassword</button>
                 <p id="modifyMessage"></p>
             </div>            
         </form>

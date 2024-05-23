@@ -132,12 +132,9 @@ $(document).ready(function() {
         formData.delete("passwordChangeAgain");
         formData.append("hashedPassword", hashPassword(password));
         if(password != passwordAgain){
-            console.log("nuh uh");
             const error = document.getElementById("modifyMessage");
             error.textContent = "Passwords are not the same!"; 
         }else{
-            console.log("yuh uh");
-            /*
             $.ajax({
                 url: "php/dashboard.php",
                 type: "POST",
@@ -145,17 +142,15 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    const error = document.getElementById("warning");
+                    const error = document.getElementById("modifyMessage");
                     error.textContent = response; 
                     
                    console.log(response);
-                    load_users();
                 },
                 error: function(xhr, status, error) {
                     console.error('Request failed:', error);
                 }
             });
-            */
         }
     });
 });
