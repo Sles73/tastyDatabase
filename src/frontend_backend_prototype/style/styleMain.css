@@ -62,7 +62,6 @@
     {
         width: 77vw !important;
         display: block !important;
-        padding: 3vw !important;
     }
     #imageForm h3
     {
@@ -110,9 +109,10 @@
     }
     #imageForm
     {
-        width: 77vw !important;
+        width: 85vw !important;
         display: block !important;
-        padding: 3vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     #imageForm h3
     {
@@ -122,12 +122,19 @@
     #jidloForm
     {
         width: 85vw !important;
-        left: 7.5vw !important;
-        top: 1vh !important;
+        height: 50vh !important;
+        overflow-y: scroll;
+        left: 4.5vw !important;
+        top: 20vh !important;
+        padding: 3vw !important;
     }
-    #jidloForm div > *
+    #imageForm div
     {
-        width: 74vw !important;
+        margin: 0 auto 0 auto !important;
+    }
+    #imageForm div > *
+    {
+        width: inherit !important;
     }
     #output 
     {
