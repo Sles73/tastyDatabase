@@ -129,6 +129,14 @@
     {
         width: 74vw !important;
     }
+    #output 
+    {
+        width: 300px !important;
+    }
+    #whisper li 
+    {
+        padding: 1vw;
+    }
 }
 :root
 {
