@@ -111,6 +111,11 @@ if (!isset($_SESSION['username'])) {
 
             case "deleteImg":
                 $imgId = $_POST["imgID"];
+                $sql = "SELECT fileName FROM imgs WHERE imgID = $imgId";
+                $result = $conn->query($sql)->fetch_assoc()["fileName"];
+                $result = "../uploads/$result";
+                echo $result;
+                unlink($result);
                 $sql = "DELETE FROM imgs WHERE imgID = $imgId;";
                 $conn->query($sql);
                 echo "php response:\nimg $imgId deleted";
@@ -125,20 +130,18 @@ if (!isset($_SESSION['username'])) {
                     $PHPhashedPassword = password_hash($hashedPassword, PASSWORD_DEFAULT);
 
                     // Prepare the SQL statement
-                    $stmt = $conn->prepare("UPDATE users SET password = ? WHERE userID = ?");
-                    
-                    // Bind parameters
-                    $stmt->bind_param("si", $PHPhashedPassword, $userId);
+                    $sql = "UPDATE users SET password = \"$PHPhashedPassword\" WHERE userID = \"$userId\"";
 
-                    // Execute the query
-                    if ($stmt->execute()) {
-                        echo "Password changed";
-                    } else {
-                        echo "Error updating password: " . $stmt->error;
+                    echo "\nphp: $PHPhashedPassword";
+
+                    /*
+                    if($conn->query($sql)){
+                        echo "password changed";
+                    }else{
+                        echo "password not changed";
                     }
-
-                    // Close the statement
-                    $stmt->close();
+                    */
+                    
                 } else {
                     echo "Information not given";
                 }
