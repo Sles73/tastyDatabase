@@ -79,11 +79,11 @@
         width: 74vw !important;
     }
 }
-@media only all and (max-width: 400px) 
+@media only all and (max-width: 450px) 
 {
     body, html > *
     {
-        max-width: 400px;
+        max-width: 450px;
         overflow-x: hidden;
     }
     #prihlaseni

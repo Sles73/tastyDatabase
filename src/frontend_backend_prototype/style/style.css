@@ -78,11 +78,11 @@
         width: 80vw !important;
     }
 }
-@media only all and (max-width: 400px) 
+@media only all and (max-width: 450px) 
 {
     body, html > *
     {
-        max-width: 400px;
+        max-width: 450px;
         overflow-x: hidden;
     }
     #prihlaseni
@@ -125,6 +125,26 @@
     {
         width: 80vw !important;
     }
+    .user
+    {
+        width: 70vw !important;
+        left: 15vw !important;
+    }
+    .userForm
+    {
+        width: inherit !important;
+    }
+    .userForm > *
+    {
+        width: 65vw !important;
+    }
+    .userForm input, select
+    {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    #changePassword {width: 65vw !important;}
 }
 :root
 {
