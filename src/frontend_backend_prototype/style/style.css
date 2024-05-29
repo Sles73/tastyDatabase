@@ -157,6 +157,28 @@
     --darkgray: #929292;
     --yellow: #ffcf55;
     --fontLight: #011f2aa6;
+    --footerFont: #f1f1f1;
+    --rating: #ffffff85;
+    --red: #ff4646;
+    --svg: url("img/krizekTmavy.svg");
+    --svgDark: url("img/mesicSvetly.svg");
+}
+:root.dark
+{
+    --background: #151a1d;
+    --header: #192023;
+    --font: #d3e4e6;
+    --fontHover: #f8fcff;
+    --border: #324249;
+    --gray: #252f34;
+    --darkgray: #20292d;
+    --yellow: #d8b14c;
+    --fontLight: #e1f2f4;
+    --footerFont: #d3e4e6;
+    --rating: #46505685;
+    --red: #ad3030;
+    --svg: url("img/krizekSvetly.svg");
+    --svgDark: url("img/mesicTmavy.svg");
 }
 html
 {
@@ -239,16 +261,15 @@ footer
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    color: var(--header);
+    color: var(--footerFont);
 }
 #time {font-weight: 600;}
 footer a
 {
-    color: var(--font);
     margin-left: 1vw;
     text-decoration: none;
     font-weight: 700;
-    color: var(--header);
+    color: var(--footerFont);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #prihlaseni
@@ -262,7 +283,7 @@ footer a
     left: 36.5vw;
     background-color: var(--background);
     border-radius: 20px;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
 }
 #prihlaseniForm
 {
@@ -298,7 +319,7 @@ footer a
     margin: 0 auto;
     border-radius: 30px;
     border: none;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     background-color: var(--background);
     font-family: "Nunito", sans-serif;
     font-weight: 700;
@@ -333,7 +354,7 @@ footer a
     background-color: var(--header);
     border-radius: 10px;
     padding: 0.5vw;
-    box-shadow: 0 0 1px var(--font);
+    box-shadow: 0 0 1px var(--border);
     transition: all 3s ease-in-out;
 }
 #prihlaseniList button
@@ -366,7 +387,7 @@ footer a
     border-top: 1px solid transparent;
     background-color: var(--header);
     border-radius: 20px;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
 }
 .userForm
 {
@@ -418,7 +439,7 @@ footer a
     margin: 0 auto;
     border-radius: 30px;
     border: none;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     background-color: var(--background);
     font-family: "Nunito", sans-serif;
     font-weight: 700;
@@ -451,4 +472,20 @@ footer a
 #smazat
 {
     margin: 2vh auto 3vh auto;
+}
+#darkToggle
+{
+    position: fixed;
+    bottom: 3vh;
+    left: 2vw;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: var(--font);
+    border: none;
+    box-shadow: 0 0 3px --border;
+    background-image: var(--svgDark);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
 }

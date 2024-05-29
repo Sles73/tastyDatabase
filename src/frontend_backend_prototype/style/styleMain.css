@@ -145,18 +145,6 @@
         padding: 1vw;
     }
 }
-:root
-{
-    --background: #e0e0e0;
-    --header: #f1f1f1;
-    --font: #011F2A;
-    --fontHover: #00445d;
-    --border: #292929;
-    --gray: #cdcdcd;
-    --darkgray: #929292;
-    --yellow: #ffcf55;
-    --fontLight: #011f2aa6;
-}
 #first
 {
     width: 80vw;
@@ -178,7 +166,7 @@
     margin: 0;
     overflow: hidden;
     background-color: var(--header);
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -214,9 +202,8 @@
     border: none;
     border-radius: 15px;
     background-color: var(--background);
-    box-shadow: 0 0 2px var(--font);
-    background-image: url("img/close-cross-svgrepo-com.svg");
-    fill: var(--font);
+    box-shadow: 0 0 2px var(--border);
+    background-image: var(--svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 8px;
@@ -233,7 +220,7 @@
     overflow: hidden;
     margin-top: 2vh;
     border-radius: 20px;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     background-color: var(--header);
     border-top: 1px solid transparent;
 }
@@ -252,7 +239,7 @@
     border: none;
     margin: 0 0 2.5vh 10px;
     padding: 0 1vw 0 1vw;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     background-color: var(--background);
     /* background-color: var(--yellow); */
     font-family: "Nunito", sans-serif;
@@ -322,7 +309,7 @@ hr
     aspect-ratio: 1 / 1.25;
     border-radius: 20px;
     background-color: var(--header);
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     position: relative;
 }
 #rating
@@ -332,7 +319,7 @@ hr
     height: auto;
     aspect-ratio: 1 / 1;
     border-radius: 20px;
-    background-color: #ffffff85;
+    background-color: var(--rating);
     z-index: 1;
     position: absolute;
     top: -3vh;
@@ -362,7 +349,7 @@ hr
     aspect-ratio: 1 / 1;
     border-radius: 20px;
     margin: 3.5vh auto 2vh auto;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     display: block;
 }
 .obed h2
@@ -392,7 +379,7 @@ hr
     display: none;
     background-color: var(--header);
     border-radius: 20px;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
 }
 .formicka
 {
@@ -444,7 +431,7 @@ hr
     margin: 1.5vh auto;
     border-radius: 30px;
     border: none;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     background-color: var(--background);
     font-family: "Nunito", sans-serif;
     font-weight: 700;
@@ -524,7 +511,7 @@ input[type="file"]
 
 .imgDeleteButton{
     display: none;
-    background-color: #ff4646;
+    background-color: var(--red);
     position: absolute;
     left: 10px;
     top: 10px;
@@ -533,7 +520,7 @@ input[type="file"]
     aspect-ratio: 1 / 1;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0 2px var(--font);
+    box-shadow: 0 0 2px var(--border);
     background-image: url("img/delete-svgrepo-com.svg");
     background-size: 20px;
     background-repeat: no-repeat;

@@ -76,3 +76,9 @@ function hide_form(e)
     }
 }
 document.addEventListener('click', hide_form);
+
+function darkMode()
+{
+    const toggleBtn = document.getElementById('darkToggle');
+    document.documentElement.classList.toggle('dark');
+}
