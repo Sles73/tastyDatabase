@@ -90,7 +90,7 @@
     height: fit-content;
     margin: 5vh auto 0 auto;
 }
-#first img {box-shadow: 0 0 5px var(--font);}
+#first img {box-shadow: 0 0 5px var(--border);}
 #second
 {
     width: 80vw;

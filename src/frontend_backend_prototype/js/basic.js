@@ -8,8 +8,6 @@ window.onload = function() {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var strTime = hours + ampm + ' ' + date.getDate() + '.' + (date.getMonth()+1) + '.' + ' ' + date.getFullYear();
     document.getElementById('time').innerHTML = strTime;
-    var list = document.getElementById("prihlaseniList");
-    list.style.display = "none";
     var modiy = document.getElementById("modifyUser");
     modiy.style.display = "none";
 };
@@ -28,14 +26,14 @@ function setLogin(json){
 function prihlaseniList() {
     var list = document.getElementById("prihlaseniList");
     var button = document.getElementById("prihlaseniButtonRozbalovac");
-    list.style.display = "block";
+    list.style.opacity = 1;
     button.innerHTML = "–";
 }
 function prihlaseniListNe()
 {
     var list = document.getElementById("prihlaseniList");
     var button = document.getElementById("prihlaseniButtonRozbalovac");
-    list.style.display = "none";
+    list.style.opacity= 0;
     button.innerHTML = "+";
 }
 function prihlaseniListEnable(){
@@ -76,7 +74,6 @@ function hide_form(e)
     }
 }
 document.addEventListener('click', hide_form);
-
 function darkMode()
 {
     const toggleBtn = document.getElementById('darkToggle');

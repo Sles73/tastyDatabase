@@ -2,9 +2,7 @@
     <section id="first">
         <form id="search">
             <div id="searchArea">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25px" height="25px">
-                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>                
+                <div id="searchIcon"></div>          
                 <input name="searchBar" id="searchBar" type="text" placeholder="Najít v Tastybase...">
                 <input id="clear" name="clear" type="button">
             </div>
@@ -25,25 +23,27 @@
         <form enctype="multipart/form-data" class="formicka" id="imageForm">
             <div>
                 <h3>Přidání pokrmu</h3>
-                <label for="name">Name:</label>
+                <label for="name">Název</label>
                 <input type="text" id="name" name="name" placeholder="Napiš název jídla">
-                <label for="date">Select Date:</label>
+                <label for="date">Datum</label>
                 <input type="date" id="date" name="date">
-                <label for="course">Select the course</label>
+                <label for="course"></label>Oběd číslo
                 <select id="course" name="course">
-                    <option value="1">Course 1</option>
-                    <option value="2">Course 2</option>
-                    <option value="3">Course 3</option>
+                    <option value="1">Oběd 1</option>
+                    <option value="2">Oběd 2</option>
+                    <option value="3">Oběd 3</option>
                 </select>
-                <label for="slider">Select a number from 1 to 10:</label>
+                <label for="slider">Vyber hodnocení od 1 do 10</label>
                 <input type="range" id="slider" name="slider" min="1" max="10" step="1">
                 <span id="sliderOutput"></span>
             </div>
             <div>
-                <label for="imageFile">Choose Image:</label>
-                <input type="file" id="fileToUpload" name="fileToUpload">
+                <label for="imageFile">Pridej fotku</label>
+                <div id="fileArea">
+                    <input type="file" id="fileToUpload" name="fileToUpload">
+                </div>
                 <span id="imgOutputMessage"></span>
-                <button id="uploadButton" type="submit" onclick='event.preventDefault(event)'>Upload Image</button> 
+                <button id="uploadButton" type="submit" onclick='event.preventDefault(event)'>Přidat do TastyBase</button> 
             </div>
         </form>
     </div>

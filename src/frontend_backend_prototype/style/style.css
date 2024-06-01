@@ -150,35 +150,44 @@
 {
     --background: #e0e0e0;
     --header: #f1f1f1;
+    --lightHeader: #f9f9f9;
     --font: #011F2A;
-    --fontHover: #00445d;
+    --fontHover: #005675;
     --border: #292929;
     --gray: #cdcdcd;
     --darkgray: #929292;
+    --fileBorder: #929292;
     --yellow: #ffcf55;
+    --yellowHover: #ffcc00;
     --fontLight: #011f2aa6;
     --footerFont: #f1f1f1;
     --rating: #ffffff85;
     --red: #ff4646;
+    --redHover: #ff0000;
     --svg: url("img/krizekTmavy.svg");
     --svgDark: url("img/mesicSvetly.svg");
+    --svgSearch: url("img/searchIconDark.svg");
 }
 :root.dark
 {
-    --background: #151a1d;
-    --header: #192023;
+    --background: #13171a;
+    --header: #1d2528;
+    --lightHeader: #20292d;
     --font: #d3e4e6;
     --fontHover: #f8fcff;
-    --border: #324249;
+    --border: #41555e;
     --gray: #252f34;
     --darkgray: #20292d;
-    --yellow: #d8b14c;
-    --fontLight: #e1f2f4;
+    --fileBorder: #d3e4e6;
+    --yellow: #efb728;
+    --fontLight: #7f9495;
     --footerFont: #d3e4e6;
     --rating: #46505685;
     --red: #ad3030;
+    --redHover: #bb1b1b;
     --svg: url("img/krizekSvetly.svg");
-    --svgDark: url("img/mesicTmavy.svg");
+    --svgDark: url("img/slunce.svg");
+    --svgSearch: url("img/searchIconLight.svg");
 }
 html
 {
@@ -198,23 +207,76 @@ body
     background-color: var(--background);
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
 }
+#topBlur
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100px;
+    mask-image: linear-gradient(#000000, #00000000);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 3;
+}
+#bottomBlur
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    mask-image: linear-gradient(#00000000, #000000);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 3;
+}
 header
 {
     width: 100vw;
     height: 12vh;
     background-color: var(--header);
     box-shadow: 0 0 3px var(--border);
+    z-index: 4;
 }
 #logo
 {
     width: 12vh;
     height: auto;
     aspect-ratio: 1 / 1;
+    z-index: 4;
     margin-left: 3vw;
+    animation: skok 2s ease-in-out;
+}
+@keyframes skok
+{
+    0%
+    {
+        transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% 
+    {
+        transform: translateY(-4px) rotate(0deg) scale(1.07);
+    }
+    75% 
+    {
+        transform: translateY(-10px) rotate(360deg) scale(1.07);
+    }
+    100%
+    {
+        transform: translateY(0px) rotate(360deg)  scale(1);
+    }
 }
 #menu
 {
     display: flex;
+    z-index: 4;
+}
+#menu > *
+{
+    z-index: 4;
 }
 #menu h1
 {
@@ -237,6 +299,7 @@ header
     font-weight: 500;
     font-size: 2.5vh;
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s ease-in;
 }
 #websites a:hover {color: var(--fontHover);}
 #prihlaseniButtonRozbalovac
@@ -297,7 +360,11 @@ footer a
     width: min-content;
     margin: 0 auto 3vh auto;
 }
-#prihlaseni label {font-weight: 500;}
+#prihlaseni label
+{
+    font-weight: 500;
+    cursor: url('img/auto.svg'), url('img/auto.png'), auto;
+}
 .prihlaseniInput
 {
     margin-bottom: 3vh;
@@ -308,6 +375,7 @@ footer a
     font-family: "Nunito", sans-serif;
     color: var(--font);
     background-color: transparent;
+    cursor: url('img/text.svg'), url('img/text.png'), text;
 }
 .prihlaseniInput:focus {outline: none;}
 .prihlaseniInput::placeholder {color: var(--fontLight);}
@@ -324,6 +392,7 @@ footer a
     font-family: "Nunito", sans-serif;
     font-weight: 700;
     color: var(--font);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #prihlaseni button:hover
 {
@@ -341,11 +410,12 @@ footer a
     background-color: #00000043;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
-    z-index: 2;
+    z-index: 3;
 }
 #prihlaseniList
 {
-    display: none;
+    display: block;
+    opacity: 0;
     width: fit-content;
     height: max-content;
     position: absolute;
@@ -355,7 +425,7 @@ footer a
     border-radius: 10px;
     padding: 0.5vw;
     box-shadow: 0 0 1px var(--border);
-    transition: all 3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 #prihlaseniList button
 {
@@ -369,6 +439,7 @@ footer a
     font-weight: 500;
     font-size: 16px;
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s ease-in;
 }
 #prihlaseniList button:hover
 {
@@ -383,7 +454,7 @@ footer a
     position: fixed;
     top: 20vh;
     left: 39vw;
-    z-index: 3;
+    z-index: 6;
     border-top: 1px solid transparent;
     background-color: var(--header);
     border-radius: 20px;
@@ -417,6 +488,7 @@ footer a
     font-family: "Nunito", sans-serif;
     color: var(--font);
     background-color: transparent;
+    cursor: url('img/text.svg'), url('img/text.png'), text;
 }
 .userForm input[type="password"]
 {
@@ -427,9 +499,13 @@ footer a
     border-bottom: 2px solid var(--gray);
     font-family: "Nunito", sans-serif;
     color: var(--font);
-    background-color: transparent;
+    background-color: transparent;cursor: url('img/text.svg'), url('img/text.png'), text;
 }
-.userForm label {display: block;}
+.userForm label
+{
+    display: block;
+    cursor: url('img/auto.svg'), url('img/auto.png'), auto;
+}
 .userForm input:focus {outline: none;}
 .userForm button
 {
@@ -444,6 +520,7 @@ footer a
     font-family: "Nunito", sans-serif;
     font-weight: 700;
     color: var(--font);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 .userForm button:hover
 {
@@ -463,6 +540,7 @@ footer a
     font-family: "Nunito", sans-serif;
     font-size: 18x;
     color: var(--font);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #deleteUser select:focus
 {
@@ -478,14 +556,22 @@ footer a
     position: fixed;
     bottom: 3vh;
     left: 2vw;
+    z-index: 4;
     width: 50px;
     height: 50px;
     border-radius: 30px;
     background-color: var(--font);
     border: none;
-    box-shadow: 0 0 3px --border;
+    box-shadow: 0 0 3px var(--border);
     background-image: var(--svgDark);
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s ease-in-out;
+}
+#darkToggle:hover
+{
+    background-color: var(--fontHover);
+    transform: scale(1.05);
 }

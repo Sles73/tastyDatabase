@@ -171,12 +171,20 @@
     justify-content: space-around;
     align-items: center;
 }
-#searchArea svg
+#searchArea:hover #searchIcon
+{
+    transform: rotate(3deg) scale(1.1);
+}
+#searchIcon
 {
     width: 25px;
     height: 25px;
-    fill: var(--font);
     margin-left: 1vw;
+    background-image: var(--svgSearch);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    transition: all 0.3s ease-in-out;
 }
 #searchBar
 {
@@ -208,10 +216,12 @@
     background-repeat: no-repeat;
     background-size: 8px;
     cursor: url('img/auto.svg'), url('img/auto.png'), auto;
+    transition: all 0.2s ease-in-out;
 }
 #clear:hover
 {
     background-color: var(--gray);
+    transform: scale(1.1);
 }
 #outputArea
 {
@@ -246,10 +256,17 @@
     font-weight: 600;
     color: var(--font);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.2s ease-in-out;
 }
 .filtr:hover
 {
     background-color: var(--gray);
+    transform: translateY(-2px) scale(1.025);
+}
+.filtr:focus
+{
+    background-color: var(--gray);
+    transform: translateY(-2px) scale(1.025);
 }
 hr
 {
@@ -266,6 +283,7 @@ hr
     overflow: hidden;
     color: var(--font);
     font-size: 18px;
+    transition: all 0.3s ease-in-out;
 }
 #whisper
 {
@@ -287,34 +305,48 @@ hr
 }
 #result
 {
-    /*
-    display: grid;
-    grid-template-columns: auto auto auto;
-    */
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* column-gap: 2.5vw;
-    row-gap: 5vh; */
     column-gap: 35px;
     row-gap: 40px;
 }
 .obed
 {
-    /*width: 25vw;*/
     width: 300px;
     height: min-content ;
     aspect-ratio: 1 / 1.25;
     border-radius: 20px;
     background-color: var(--header);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     box-shadow: 0 0 2px var(--border);
     position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.obed > *
+{
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.07s;
+}
+.obed:hover
+{
+    transform: scale(1.01);
+    color: var(--fontHover);
+    background-color: var(--lightHeader);
+}
+.obed:hover img
+{
+    transform: scale(1.01);
+}
+.obed:hover #rating
+{
+    transform: scale(1.05) rotate(-2deg);
 }
 #rating
 {
-    /* width: 9.5vw; */
     width: 120px;
     height: auto;
     aspect-ratio: 1 / 1;
@@ -334,12 +366,12 @@ hr
 }
 #rating p
 {
-    color: var(--header);
+    color: var(--font);
     font-size: 25px;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0;
-    text-shadow: 0 0 10px var(--font);
-    /* -webkit-text-stroke: 1px var(--border); */
+    text-shadow: 0 0 10px var(--header);
+    font-family: "Nunito", sans-serif;
 }
 .obed img
 {
@@ -356,15 +388,15 @@ hr
 {
     margin: 0 0 1vh 25px;
     width: 250px;
-    height: min-content;
+    height: 32px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s;
 }
 .obed h2:hover
 {
     text-wrap: pretty;
+    height: 64px;
+    overflow: visible;
 }
 .obed p {margin-left: 25px;}
 
@@ -372,7 +404,7 @@ hr
 {
     width: 40vw;
     height: fit-content;
-    z-index: 3;
+    z-index: 6;
     position: fixed;
     top: 20vh;
     left: 30vw;
@@ -409,6 +441,7 @@ hr
     font-family: "Nunito", sans-serif;
     color: var(--font);
     background-color: transparent;
+    cursor: url('img/text.svg'), url('img/text.png'), text;
 }
 .formicka input[type="password"]
 {
@@ -420,8 +453,13 @@ hr
     font-family: "Nunito", sans-serif;
     color: var(--font);
     background-color: transparent;
+    cursor: url('img/text.svg'), url('img/text.png'), text;
 }
-.formicka label {display: block;}
+.formicka label
+{
+    display: block;
+    cursor: url('img/auto.svg'), url('img/auto.png'), auto;
+}
 .formicka input:focus {outline: none;}
 .formicka button
 {
@@ -436,6 +474,7 @@ hr
     font-family: "Nunito", sans-serif;
     font-weight: 700;
     color: var(--font);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 .formicka button:hover
 {
@@ -451,10 +490,12 @@ input[type="date"]
     font-family: "Nunito", sans-serif;
     font-size: 18x;
     color: var(--font);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 #imageForm input[type="date"]
 {
     width: 18.2vw;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 select
 {
@@ -467,16 +508,39 @@ select
     font-family: "Nunito", sans-serif;
     font-size: 18x;
     color: var(--font);
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
-input[type="file"]
+#slider
+{
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+}
+#slider::-webkit-slider-thumb
+{
+    background-color: blue;
+}
+#fileArea
 {
     width: 18vw;
     height: auto;
     aspect-ratio: 1 / 1;
     margin: 0 auto 0 auto;
     border-radius: 20px;
+    border: 2px dashed var(--fileBorder);
+}
+input[type="file"]
+{
+    width: 18vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    /* visibility: hidden; */
     background-color: transparent;
-    border: 2px dashed var(--darkgray);
+    text-align: center;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+}
+#fileToUpload::-webkit-file-upload-button
+{
+    visibility: hidden;
 }
 #imageForm
 {
@@ -506,8 +570,15 @@ input[type="file"]
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 4;
 }
-#addMeal:hover {background-color: #ffd468;}
+#addMeal:hover
+{
+    background-color: var(--yellowHover);
+    transform: scale(1.05);
+}
 
 .imgDeleteButton{
     display: none;
@@ -525,10 +596,11 @@ input[type="file"]
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
 }
 .imgDeleteButton:hover
 {
-    background-color: #ff0000;
+    background-color: var(--redHover);
     animation: tres infinite 400ms;
 }
 @keyframes tres
