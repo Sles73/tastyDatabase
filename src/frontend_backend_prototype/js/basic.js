@@ -8,8 +8,6 @@ window.onload = function() {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var strTime = hours + ampm + ' ' + date.getDate() + '.' + (date.getMonth()+1) + '.' + ' ' + date.getFullYear();
     document.getElementById('time').innerHTML = strTime;
-    var modiy = document.getElementById("modifyUser");
-    modiy.style.display = "none";
 };
 function setLogin(json){
     if(json.login == true){
@@ -26,6 +24,7 @@ function setLogin(json){
 function prihlaseniList() {
     var list = document.getElementById("prihlaseniList");
     var button = document.getElementById("prihlaseniButtonRozbalovac");
+    list.style.display = "block";
     list.style.opacity = 1;
     button.innerHTML = "–";
 }
@@ -33,6 +32,7 @@ function prihlaseniListNe()
 {
     var list = document.getElementById("prihlaseniList");
     var button = document.getElementById("prihlaseniButtonRozbalovac");
+    list.style.display = "none";
     list.style.opacity= 0;
     button.innerHTML = "+";
 }
@@ -56,21 +56,29 @@ function prihlaseniListDisable(){
 var id;
 function show_form(idForm)
 {
-    var objeveni = document.getElementById(idForm);
+    var objeveni = document.querySelector(idForm);
     id = objeveni;
-    var overlay = document.getElementById("overlay");
+    var overlay = document.querySelector("#overlay");
     objeveni.style.display = "block";
+    objeveni.style.animation = "visible 0.2s";
+    objeveni.style.opacity = 1;
     overlay.style.display = "block";
+    overlay.style.animation = "visible 0.2s";
+    overlay.style.opacity = 1;
     event.stopPropagation();
 }
 function hide_form(e)
 {
     var objeveni = id;
-    var overlay = document.getElementById("overlay");
+    var overlay = document.querySelector("#overlay");
     if (objeveni && !objeveni.contains(e.target)) 
     {
+        objeveni.style.animation = "visible 0.3s reverse";
         objeveni.style.display = 'none';
+        objeveni.style.opacity = 0;
+        overlay.style.animation = "visible 0.3s reverse";
         overlay.style.display = "none";
+        overlay.style.opacity = 0;
     }
 }
 document.addEventListener('click', hide_form);
@@ -79,3 +87,5 @@ function darkMode()
     const toggleBtn = document.getElementById('darkToggle');
     document.documentElement.classList.toggle('dark');
 }
+
+

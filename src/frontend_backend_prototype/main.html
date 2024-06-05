@@ -33,8 +33,11 @@
                     <option value="2">Oběd 2</option>
                     <option value="3">Oběd 3</option>
                 </select>
-                <label for="slider">Vyber hodnocení od 1 do 10</label>
+                <!-- <label for="slider">Vyber hodnocení od 1 do 10</label>
                 <input type="range" id="slider" name="slider" min="1" max="10" step="1">
+                <span id="sliderOutput"></span> -->
+                <label for="slider" class="form-label">Vyber hodnocení od 1 do 10</label>
+                <input type="range" id="slider" class="form-range" name="slider" min="1" max="10" step="1">
                 <span id="sliderOutput"></span>
             </div>
             <div>
@@ -47,7 +50,7 @@
             </div>
         </form>
     </div>
-    <button onclick="show_form('jidloForm')" id="addMeal"></button>
+    <button onclick="show_form('#jidloForm')" id="addMeal"></button>
     <script src="js/search.js"></script>
     <script src="js/addMeal.js"></script>
     <script src="js/admin_util.js"></script>

@@ -333,7 +333,7 @@ hr
 }
 .obed:hover
 {
-    transform: scale(1.01);
+    transform: scale(1.01) translateY(-7px);
     color: var(--fontHover);
     background-color: var(--lightHeader);
 }
@@ -463,10 +463,10 @@ hr
 .formicka input:focus {outline: none;}
 .formicka button
 {
-    width: 10vw;
+    width: 15vw;
     height: 4.5vh;
     display: block;
-    margin: 1.5vh auto;
+    margin: 3vh auto 0 auto;
     border-radius: 30px;
     border: none;
     box-shadow: 0 0 2px var(--border);
@@ -475,10 +475,12 @@ hr
     font-weight: 700;
     color: var(--font);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s;
 }
 .formicka button:hover
 {
     background-color: var(--gray);
+    transform: translateY(-2px) scale(1.01);
 }
 input[type="date"]
 {
@@ -513,10 +515,7 @@ select
 #slider
 {
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
-}
-#slider::-webkit-slider-thumb
-{
-    background-color: blue;
+    width: 16vw;
 }
 #fileArea
 {

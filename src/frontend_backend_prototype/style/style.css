@@ -150,7 +150,7 @@
 {
     --background: #e0e0e0;
     --header: #f1f1f1;
-    --lightHeader: #f9f9f9;
+    --lightHeader: #f4f4f4;
     --font: #011F2A;
     --fontHover: #005675;
     --border: #292929;
@@ -338,7 +338,8 @@ footer a
 #prihlaseni
 {
     display: none;
-    z-index: 3;
+    opacity: 0;
+    z-index: 6;
     width: 25vw;
     height: 40vh;
     position: fixed;
@@ -347,6 +348,17 @@ footer a
     background-color: var(--background);
     border-radius: 20px;
     box-shadow: 0 0 2px var(--border);
+}
+@keyframes visible
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
 }
 #prihlaseniForm
 {
@@ -393,13 +405,16 @@ footer a
     font-weight: 700;
     color: var(--font);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s;
 }
 #prihlaseni button:hover
 {
     background-color: var(--gray);
+    transform: translateY(-2px) scale(1.01);
 }
 #overlay {
     display: none;
+    opacity: 0;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -410,11 +425,11 @@ footer a
     background-color: #00000043;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
-    z-index: 3;
+    z-index: 4;
 }
 #prihlaseniList
 {
-    display: block;
+    display: none;
     opacity: 0;
     width: fit-content;
     height: max-content;
@@ -425,7 +440,7 @@ footer a
     border-radius: 10px;
     padding: 0.5vw;
     box-shadow: 0 0 1px var(--border);
-    transition: all 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 #prihlaseniList button
 {
@@ -459,6 +474,8 @@ footer a
     background-color: var(--header);
     border-radius: 20px;
     box-shadow: 0 0 2px var(--border);
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.3s;
 }
 .userForm
 {
@@ -521,10 +538,12 @@ footer a
     font-weight: 700;
     color: var(--font);
     cursor: url('img/pointer.svg'), url('img/pointer.png'), pointer;
+    transition: all 0.3s;
 }
 .userForm button:hover
 {
     background-color: var(--gray);
+    transform: translateY(-2px) scale(1.01);
 }
 #addUser {display: none;}
 #deleteUser {display: none;}
@@ -556,7 +575,7 @@ footer a
     position: fixed;
     bottom: 3vh;
     left: 2vw;
-    z-index: 4;
+    z-index: 5;
     width: 50px;
     height: 50px;
     border-radius: 30px;
