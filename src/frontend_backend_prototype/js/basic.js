@@ -25,15 +25,15 @@ function prihlaseniList() {
     var list = document.getElementById("prihlaseniList");
     var button = document.getElementById("prihlaseniButtonRozbalovac");
     list.style.display = "block";
-    list.style.opacity = 1;
+    list.style.animation = "visible 0.2s forwards";
     button.innerHTML = "–";
 }
 function prihlaseniListNe()
 {
     var list = document.getElementById("prihlaseniList");
     var button = document.getElementById("prihlaseniButtonRozbalovac");
-    list.style.display = "none";
-    list.style.opacity= 0;
+    list.style.animation = "hidden 0.3s forwards";
+    // list.style.opacity= 0;
     button.innerHTML = "+";
 }
 function prihlaseniListEnable(){
@@ -60,11 +60,9 @@ function show_form(idForm)
     id = objeveni;
     var overlay = document.querySelector("#overlay");
     objeveni.style.display = "block";
-    objeveni.style.animation = "visible 0.2s";
-    objeveni.style.opacity = 1;
+    objeveni.style.animation = "visible 0.2s forwards";
     overlay.style.display = "block";
-    overlay.style.animation = "visible 0.2s";
-    overlay.style.opacity = 1;
+    overlay.style.animation = "visible 0.2s forwards";
     event.stopPropagation();
 }
 function hide_form(e)
@@ -73,12 +71,8 @@ function hide_form(e)
     var overlay = document.querySelector("#overlay");
     if (objeveni && !objeveni.contains(e.target)) 
     {
-        objeveni.style.animation = "visible 0.3s reverse";
-        objeveni.style.display = 'none';
-        objeveni.style.opacity = 0;
-        overlay.style.animation = "visible 0.3s reverse";
-        overlay.style.display = "none";
-        overlay.style.opacity = 0;
+        objeveni.style.animation = "hidden 0.3s forwards";
+        overlay.style.animation = "hidden 0.3s forwards";
     }
 }
 document.addEventListener('click', hide_form);
