@@ -5,20 +5,19 @@ url = "https://strava.spseplzen.cz/faces/login.jsp"
 result = requests.get(url)
 doc = BeautifulSoup(result.text, "html.parser")
 
-for i in range(0,8):
+for i in range(0,9):
     jidelnicekDen1 = doc.find_all("div", {"class": "jidelnicekDen"})[i]
     den = jidelnicekDen1.find("span", {"class": "important"})
     print(den.string.strip())
-    chodyDiv = jidelnicekDen1.find_all("div")[1]
+    chodyDiv = jidelnicekDen.find_all("div")[1]
 
     for x in range(3, 6):
         print("Obed ", x - 2)
         obedDiv = chodyDiv.find_all("div")[x]
         obedDivContent = obedDiv.get_text()
-        strednik = obedDivContent.index(';')
-        zavorka1 = obedDivContent.index('(')
-        zavorka2 = obedDivContent.rfind('(')
-        obed = obedDivContent[strednik + 2:zavorka2].strip()
+        start = obedDivContent.index(';')
+        end = obedDivContent.rfind('(')
+        obed = obedDivContent[start + 2:end].strip()
         print(obed)
 
 
