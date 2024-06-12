@@ -12,13 +12,14 @@ for i in range(0,8):
     chodyDiv = jidelnicekDen1.find_all("div")[1]
 
     for x in range(3, 6):
-        print("Obed ", x - 2)
+        print("<br>Obed", x - 2)
         obedDiv = chodyDiv.find_all("div")[x]
         obedDivContent = obedDiv.get_text()
         start = obedDivContent.index(';')
         end = obedDivContent.rfind('(')
         obed = obedDivContent[start + 2:end].strip()
         print(obed)
+    print("<br>")
 
 
 
